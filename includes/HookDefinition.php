@@ -2,7 +2,7 @@
 
 namespace ParserHooks;
 
-class ParserFunctionDefinition {
+class HookDefinition {
 
 	protected $names;
 	protected $parameters;

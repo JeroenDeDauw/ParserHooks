@@ -4,7 +4,7 @@ namespace ParserHooks;
 
 use ParamProcessor\ProcessingResult;
 
-interface ParserFunctionHandler {
+interface HookHandler {
 
 	public function handle( \Parser $parser, ProcessingResult $result );
 

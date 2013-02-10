@@ -2,15 +2,15 @@
 
 namespace ParserHooks;
 
-class ParserFunctionRunner {
+class FunctionRunner {
 
 	/**
-	 * @var ParserFunctionDefinition
+	 * @var HookDefinition
 	 */
 	protected $definition;
 
 	/**
-	 * @var ParserFunctionHandler
+	 * @var HookHandler
 	 */
 	protected $handler;
 
@@ -20,11 +20,11 @@ class ParserFunctionRunner {
 	protected $paramProcessor;
 
 	/**
-	 * @param ParserFunctionDefinition $definition
-	 * @param ParserFunctionHandler $handler
+	 * @param HookDefinition $definition
+	 * @param HookHandler $handler
 	 * @param \ParamProcessor\Processor|null $paramProcessor
 	 */
-	public function __construct( ParserFunctionDefinition $definition, ParserFunctionHandler $handler, \ParamProcessor\Processor $paramProcessor = null ) {
+	public function __construct( HookDefinition $definition, HookHandler $handler, \ParamProcessor\Processor $paramProcessor = null ) {
 		$this->defintion = $definition;
 		$this->handler = $handler;
 
@@ -61,14 +61,14 @@ class ParserFunctionRunner {
 	}
 
 	/**
-	 * @return ParserFunctionHandler
+	 * @return HookHandler
 	 */
 	public function getHandler() {
 		return $this->handler;
 	}
 
 	/**
-	 * @return ParserFunctionDefinition
+	 * @return HookDefinition
 	 */
 	public function getDefinition() {
 		return $this->definition;

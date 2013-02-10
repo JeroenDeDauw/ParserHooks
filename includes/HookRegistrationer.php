@@ -4,7 +4,7 @@ namespace ParserHooks;
 
 use Parser;
 
-class ParserHookRegisterer {
+class HookRegistrationer {
 
 	/**
 	 * @var \Parser
@@ -19,9 +19,9 @@ class ParserHookRegisterer {
 	}
 
 	/**
-	 * @param ParserFunctionRunner $runner
+	 * @param FunctionRunner $runner
 	 */
-	public function registerFunction( ParserFunctionRunner $runner ) {
+	public function registerFunction( FunctionRunner $runner ) {
 		$this->parser->setFunctionHook(
 			$runner->getDefinition(),
 			array( $runner, 'run' ),
