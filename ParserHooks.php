@@ -35,7 +35,16 @@ call_user_func( function() {
 
 	global $wgExtensionCredits, $wgExtensionMessagesFiles, $wgAutoloadClasses, $wgHooks;
 
-	$wgExtensionCredits['other'][] = include( __DIR__ . '/ParserHooks.credits.php' );
+	$wgExtensionCredits['other'][] = array(
+		'path' => __FILE__,
+		'name' => 'ParserHooks',
+		'version' => ParserHooks_VERSION,
+		'author' => array(
+			'[https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw]',
+		),
+		'url' => 'https://www.mediawiki.org/wiki/Extension:ParserHooks',
+		'descriptionmsg' => 'parserhooks-desc'
+	);
 
 	$wgExtensionMessagesFiles['ParserHooksExtension'] = __DIR__ . '/ParserHooks.i18n.php';
 
