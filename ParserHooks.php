@@ -32,6 +32,40 @@ define( 'ParserHooks_VERSION', '0.1 alpha' );
 
 // @codeCoverageIgnoreStart
 call_user_func( function() {
-	// TODO
+
+	global $wgExtensionCredits, $wgExtensionMessagesFiles, $wgAutoloadClasses, $wgHooks;
+
+	$wgExtensionCredits['other'][] = include( __DIR__ . '/ParserHooks.credits.php' );
+
+	$wgExtensionMessagesFiles['ParserHooksExtension'] = __DIR__ . '/ParserHooks.i18n.php';
+
+	// Autoloading
+	foreach ( include( __DIR__ . '/ParserHooks.classes.php' ) as $class => $file ) {
+		if ( !array_key_exists( $class, $GLOBALS['wgAutoloadLocalClasses'] ) ) {
+			$wgAutoloadClasses[$class] = __DIR__ . '/' . $file;
+		}
+	}
+
+	/**
+	 * Hook to add PHPUnit test cases.
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UnitTestsList
+	 *
+	 * @since 0.1
+	 *
+	 * @param array $files
+	 *
+	 * @return boolean
+	 */
+	$wgHooks['UnitTestsList'][]	= function( array &$files ) {
+		$testFiles = array(
+		);
+
+		foreach ( $testFiles as $file ) {
+			$files[] = __DIR__ . '/tests/phpunit/' . $file . 'Test.php';
+		}
+
+		return true;
+	};
+
 } );
 // @codeCoverageIgnoreEnd
