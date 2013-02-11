@@ -4,7 +4,7 @@ namespace ParserHooks;
 
 use Parser;
 
-class HookRegistrationer {
+class HookRegistrant {
 
 	/**
 	 * @var \Parser
