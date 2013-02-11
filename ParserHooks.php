@@ -39,7 +39,6 @@ call_user_func( function() {
 
 	$wgExtensionMessagesFiles['ParserHooksExtension'] = __DIR__ . '/ParserHooks.i18n.php';
 
-	// Autoloading
 	foreach ( include( __DIR__ . '/ParserHooks.classes.php' ) as $class => $file ) {
 		if ( !array_key_exists( $class, $GLOBALS['wgAutoloadLocalClasses'] ) ) {
 			$wgAutoloadClasses[$class] = __DIR__ . '/' . $file;
@@ -58,6 +57,10 @@ call_user_func( function() {
 	 */
 	$wgHooks['UnitTestsList'][]	= function( array &$files ) {
 		$testFiles = array(
+//			'FunctionRunner',
+			'HookDefinition',
+//			'HookHandler',
+//			'HookRegistrant',
 		);
 
 		foreach ( $testFiles as $file ) {
