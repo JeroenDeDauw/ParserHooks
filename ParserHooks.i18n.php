@@ -37,7 +37,51 @@ $messages['en'] = array(
 );
 
 /** Message documentation (Message documentation)
+ * @author Shirayuki
  */
 $messages['qqq'] = array(
-	'parserhooks-desc' => 'Extension description',
+	'parserhooks-desc' => '{{desc|name=Parser Hooks|url=http://www.mediawiki.org/wiki/Extension:ParserHooks}}
+OOP stands for Object-Oriented Programming.',
+);
+
+/** German (Deutsch)
+ * @author Metalhead64
+ */
+$messages['de'] = array(
+	'parserhooks-desc' => 'OOP-Schnittstelle zum Erstellen von MediaWiki-Parsererweiterungen auf deklarativer Weise',
+);
+
+/** French (français)
+ * @author Gomoko
+ */
+$messages['fr'] = array(
+	'parserhooks-desc' => 'L’interface OOP pour créer des amorces à l’analyseur MediaWiki travaille en mode déclaratif',
+);
+
+/** Galician (galego)
+ * @author Toliño
+ */
+$messages['gl'] = array(
+	'parserhooks-desc' => 'Interface OOP para crear asociadores do analizador de MediaWiki de modo declarativo',
+);
+
+/** Italian (italiano)
+ * @author Beta16
+ */
+$messages['it'] = array(
+	'parserhooks-desc' => 'Interfaccia OOP per la creazione di parser hooks MediaWiki in maniera dichiarativa',
+);
+
+/** Japanese (日本語)
+ * @author Shirayuki
+ */
+$messages['ja'] = array(
+	'parserhooks-desc' => 'MediaWiki パーサーフックを宣言型の方法で作成するための OOP (オブジェクト指向プログラミング) インターフェイス',
+);
+
+/** tarandíne (tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'parserhooks-desc' => "Inderfacce OOP pe ccrejà 'nu gance analizzatore de MediaUicchi jndr'à 'nu modelle dichiarative",
 );
