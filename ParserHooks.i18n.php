@@ -79,9 +79,23 @@ $messages['ja'] = array(
 	'parserhooks-desc' => 'MediaWiki パーサーフックを宣言型の方法で作成するための OOP (オブジェクト指向プログラミング) インターフェイス',
 );
 
+/** Macedonian (македонски)
+ * @author Bjankuloski06
+ */
+$messages['mk'] = array(
+	'parserhooks-desc' => 'OOP-посредник за создавање на парсерски куки за МедијаВики на декларативен начин',
+);
+
 /** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
 	'parserhooks-desc' => "Inderfacce OOP pe ccrejà 'nu gance analizzatore de MediaUicchi jndr'à 'nu modelle dichiarative",
+);
+
+/** Simplified Chinese (中文（简体）‎)
+ * @author Yfdyh000
+ */
+$messages['zh-hans'] = array(
+	'parserhooks-desc' => '用以在面向对象的编程和声明的方式下创建MediaWiki解析器钩',
 );
