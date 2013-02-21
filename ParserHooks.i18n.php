@@ -79,6 +79,13 @@ $messages['ja'] = array(
 	'parserhooks-desc' => 'MediaWiki パーサーフックを宣言型の方法で作成するための OOP (オブジェクト指向プログラミング) インターフェイス',
 );
 
+/** Korean (한국어)
+ * @author 아라
+ */
+$messages['ko'] = array(
+	'parserhooks-desc' => '선언적 방식으로 미디어위키 파서 훅을 만드는 OOP 인터페이스',
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  */
