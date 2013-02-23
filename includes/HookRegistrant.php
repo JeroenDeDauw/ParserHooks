@@ -54,11 +54,13 @@ class HookRegistrant {
 	 * @param FunctionRunner $runner
 	 */
 	public function registerFunction( FunctionRunner $runner ) {
-		$this->parser->setFunctionHook(
-			$runner->getDefinition(),
-			array( $runner, 'run' ),
-			SFH_OBJECT_ARGS
-		);
+		foreach ( $runner->getDefinition()->getNames() as $name ) {
+			$this->parser->setFunctionHook(
+				$name,
+				array( $runner, 'run' ),
+				SFH_OBJECT_ARGS
+			);
+		}
 	}
 
 }

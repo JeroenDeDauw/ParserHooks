@@ -61,7 +61,7 @@ class FunctionRunner {
 	 * @param \ParamProcessor\Processor|null $paramProcessor
 	 */
 	public function __construct( HookDefinition $definition, HookHandler $handler, \ParamProcessor\Processor $paramProcessor = null ) {
-		$this->defintion = $definition;
+		$this->definition = $definition;
 		$this->handler = $handler;
 
 		if ( $paramProcessor === null ) {
