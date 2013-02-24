@@ -65,6 +65,13 @@ $messages['gl'] = array(
 	'parserhooks-desc' => 'Interface OOP para crear asociadores do analizador de MediaWiki de modo declarativo',
 );
 
+/** Upper Sorbian (hornjoserbsce)
+ * @author Michawiki
+ */
+$messages['hsb'] = array(
+	'parserhooks-desc' => 'Wužiwarski powjerch OOP za tworjenje parserowych hóčkow mediaWiki na deklaratiwne wašnje',
+);
+
 /** Italian (italiano)
  * @author Beta16
  */
@@ -91,6 +98,13 @@ $messages['ko'] = array(
  */
 $messages['mk'] = array(
 	'parserhooks-desc' => 'OOP-посредник за создавање на парсерски куки за МедијаВики на декларативен начин',
+);
+
+/** Dutch (Nederlands)
+ * @author Siebrand
+ */
+$messages['nl'] = array(
+	'parserhooks-desc' => 'OOP-interface voor het maken van parserhooks voor MediaWiki op een declarative wijze',
 );
 
 /** tarandíne (tarandíne)
