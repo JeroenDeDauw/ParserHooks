@@ -45,10 +45,11 @@ OOP stands for Object-Oriented Programming.',
 );
 
 /** German (Deutsch)
+ * @author Kghbln
  * @author Metalhead64
  */
 $messages['de'] = array(
-	'parserhooks-desc' => 'OOP-Schnittstelle zum Erstellen von MediaWiki-Parsererweiterungen auf deklarativer Weise',
+	'parserhooks-desc' => 'Ergänzt eine OOP-Schnittstelle zum Erstellen von Parsererweiterungen',
 );
 
 /** French (français)
