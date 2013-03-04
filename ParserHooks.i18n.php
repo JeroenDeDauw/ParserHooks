@@ -44,6 +44,13 @@ $messages['qqq'] = array(
 OOP stands for Object-Oriented Programming.',
 );
 
+/** Asturian (asturianu)
+ * @author Xuacu
+ */
+$messages['ast'] = array(
+	'parserhooks-desc' => 'Interfaz OOP pa crear enganches del analizador de MediaWiki de manera declarativa',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  * @author Metalhead64
