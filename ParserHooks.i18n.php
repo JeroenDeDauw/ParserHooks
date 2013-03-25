@@ -122,6 +122,13 @@ $messages['roa-tara'] = array(
 	'parserhooks-desc' => "Inderfacce OOP pe ccrejà 'nu gance analizzatore de MediaUicchi jndr'à 'nu modelle dichiarative",
 );
 
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'parserhooks-desc' => 'Ugnayang-mukha ng Object-Oriented Programming o OOP para sa paglikha ng mga kawit ng  banghay ng MediaWiki na nasa gawi na nagpapahayag',
+);
+
 /** Simplified Chinese (中文（简体）‎)
  * @author Yfdyh000
  */
