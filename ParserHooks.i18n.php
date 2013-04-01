@@ -101,6 +101,13 @@ $messages['ko'] = array(
 	'parserhooks-desc' => '선언적 방식으로 미디어위키 파서 훅을 만드는 OOP 인터페이스',
 );
 
+/** Colognian (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'parserhooks-desc' => 'En objäk-orijänteerde Schnettschtäll för ene Paaser_Hooke för MedijaWikki pä Deklarrazjuhn aanzelääje.',
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  */
