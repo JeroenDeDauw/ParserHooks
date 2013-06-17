@@ -142,3 +142,10 @@ $messages['tl'] = array(
 $messages['zh-hans'] = array(
 	'parserhooks-desc' => '用以在面向对象的编程和声明的方式下创建MediaWiki解析器钩',
 );
+
+/** Traditional Chinese (中文（繁體）‎)
+ * @author Justincheng12345
+ */
+$messages['zh-hant'] = array(
+	'parserhooks-desc' => '用以在面向對象編程及聲明的方式下創建MediaWiki解析器鈎',
+);
