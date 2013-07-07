@@ -81,15 +81,15 @@ call_user_func( function() {
 	 * @return boolean
 	 */
 	$wgHooks['UnitTestsList'][]	= function( array &$files ) {
-		$testFiles = array(
-//			'FunctionRunner',
-			'HookDefinition',
-//			'HookHandler',
-//			'HookRegistrant',
-		);
+		$directoryIterator = new RecursiveDirectoryIterator( __DIR__ . '/tests/phpunit/' );
 
-		foreach ( $testFiles as $file ) {
-			$files[] = __DIR__ . '/tests/phpunit/' . $file . 'Test.php';
+		/**
+		 * @var SplFileInfo $fileInfo
+		 */
+		foreach ( new RecursiveIteratorIterator( $directoryIterator ) as $fileInfo ) {
+			if ( substr( $fileInfo->getFilename(), -8 ) === 'Test.php' ) {
+				$files[] = $fileInfo->getPathname();
+			}
 		}
 
 		return true;

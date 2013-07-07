@@ -1,6 +1,7 @@
 <?php
 
 namespace ParserHooks;
+
 use Parser;
 
 /**
