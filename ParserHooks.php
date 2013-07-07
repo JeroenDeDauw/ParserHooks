@@ -28,6 +28,11 @@
  * @ingroup Test
  */
 
+if ( defined( 'ParserHooks_VERSION' ) ) {
+	// Do not initialize more then once.
+	return;
+}
+
 define( 'ParserHooks_VERSION', '0.1 alpha' );
 
 // @codeCoverageIgnoreStart
