@@ -1,5 +1,5 @@
 {
-	"name": "mediawiki/parserhooks",
+	"name": "mediawiki/parser-hooks",
 	"type": "mediawiki-extension",
 	"description": "Adds a OOP and declarative parser hook interface on top of MediaWiki",
 	"keywords": ["parserhooks", "mediawiki", "parser function", "parser hook", "tag extension"],
@@ -21,9 +21,5 @@
 	},
 	"require": {
 		"php": ">=5.3.0"
-	},
-	"require-dev": {
-		"phpunit/phpunit": "*",
-		"mediawiki/mediawiki": ">=1.19"
 	}
 }
