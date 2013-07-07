@@ -30,7 +30,7 @@ namespace ParserHooks\Tests;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class HookDefinitionTest extends \MediaWikiTestCase {
+class HookDefinitionTest extends \PHPUnit_Framework_TestCase {
 
 	public function namesProvider() {
 		return $this->arrayWrap( array(
@@ -54,7 +54,7 @@ class HookDefinitionTest extends \MediaWikiTestCase {
 
 		$this->assertInternalType( 'array', $obtainedNames );
 		$this->assertContainsOnly( 'string', $obtainedNames );
-		$this->assertArrayEquals( (array)$names, $obtainedNames );
+		$this->assertEquals( (array)$names, $obtainedNames );
 	}
 
 	public function parametersProvider() {
@@ -71,7 +71,7 @@ class HookDefinitionTest extends \MediaWikiTestCase {
 	public function testGetParameters( array $parameters ) {
 		$definition = new \ParserHooks\HookDefinition( 'foo', $parameters );
 
-		$this->assertArrayEquals( $parameters, $definition->getParameters() );
+		$this->assertEquals( $parameters, $definition->getParameters() );
 	}
 
 	public function defaultParametersProvider() {
@@ -96,7 +96,16 @@ class HookDefinitionTest extends \MediaWikiTestCase {
 
 		$this->assertInternalType( 'array', $obtainedDefaultParams );
 		$this->assertContainsOnly( 'string', $obtainedDefaultParams );
-		$this->assertArrayEquals( (array)$defaultParameters, $obtainedDefaultParams );
+		$this->assertEquals( (array)$defaultParameters, $obtainedDefaultParams );
+	}
+
+	protected function arrayWrap( array $elements ) {
+		return array_map(
+			function( $element ) {
+				return array( $element );
+			},
+			$elements
+		);
 	}
 
 }
