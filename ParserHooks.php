@@ -31,9 +31,31 @@
 define( 'ParserHooks_VERSION', '0.1 alpha' );
 
 // @codeCoverageIgnoreStart
+spl_autoload_register( function ( $className ) {
+	$className = ltrim( $className, '\\' );
+	$fileName = '';
+	$namespace = '';
+
+	if ( $lastNsPos = strripos( $className, '\\') ) {
+		$namespace = substr( $className, 0, $lastNsPos );
+		$className = substr( $className, $lastNsPos + 1 );
+		$fileName  = str_replace( '\\', '/', $namespace ) . '/';
+	}
+
+	$fileName .= str_replace( '_', '/', $className ) . '.php';
+
+	$namespaceSegments = explode( '\\', $namespace );
+
+	if ( $namespaceSegments[0] === 'ParserHooks' ) {
+		if ( count( $namespaceSegments ) === 1 || $namespaceSegments[1] !== 'Tests' ) {
+			require_once __DIR__ . '/includes/' . $fileName;
+		}
+	}
+} );
+
 call_user_func( function() {
 
-	global $wgExtensionCredits, $wgExtensionMessagesFiles, $wgAutoloadClasses, $wgHooks;
+	global $wgExtensionCredits, $wgExtensionMessagesFiles, $wgHooks;
 
 	$wgExtensionCredits['other'][] = array(
 		'path' => __FILE__,
@@ -47,12 +69,6 @@ call_user_func( function() {
 	);
 
 	$wgExtensionMessagesFiles['ParserHooksExtension'] = __DIR__ . '/ParserHooks.i18n.php';
-
-	foreach ( include( __DIR__ . '/ParserHooks.classes.php' ) as $class => $file ) {
-		if ( !array_key_exists( $class, $GLOBALS['wgAutoloadLocalClasses'] ) ) {
-			$wgAutoloadClasses[$class] = __DIR__ . '/' . $file;
-		}
-	}
 
 	/**
 	 * Hook to add PHPUnit test cases.
