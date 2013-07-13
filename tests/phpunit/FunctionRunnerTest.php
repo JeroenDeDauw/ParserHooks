@@ -53,7 +53,7 @@ class FunctionRunnerTest extends \PHPUnit_Framework_TestCase {
 			$paramProcessor
 		);
 
-		$result = $runner->run( $parser );
+		$result = $runner->run( $parser, array() );
 
 		$this->assertEquals( $expectedResult, $result );
 	}
