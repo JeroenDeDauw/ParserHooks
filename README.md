@@ -2,7 +2,7 @@
 
 # ParserHooks
 
-OOP interface for creating MediaWiki parser hooks in a declarative fashion
+OOP interface for creating MediaWiki parser hooks in a declarative fashion.
 
 ## Requirements
 
@@ -37,7 +37,63 @@ ParserHooks.php.
 
 ## Usage
 
+All classes are located in the ParserHooks namespace, which is PSR-0 mapped onto the src/ directory.
 
+### General concept
+
+The declarative OOP interface provided by this library allows you to define the signatures of
+your parser hooks and the handlers for them separately. The library makes use of the parameters
+specified in this definition to do parameter processing via the ParamProcessor library. This means
+that the handler you write for your parser function will not need to care about what the name of
+the parser function is, or how the parameters for it should be processed. It has a "sizes" parameter
+that takes an array of positive integers? Your handler will always get an actual PHP array of integer
+without needing to do any parsing, validation, defaulting, etc.
+
+### HookDefinition
+
+An instance of the HookDefinition class represents the signature of a parser hook. It defines
+the name of the parser hook and the parameters (including their types, default values, etc) it
+accepts. It does not define any behaviour, and is thus purely declarative. Instances of this
+class are used in handling of actual parser hooks, though can also be used in other contexts.
+For instance, you can feed these definitions to a tool that generates parser hook documentation
+based on them.
+
+The parameter definitions are ParamProcessor\ParamDefinition objects. See the ParamProcessor
+documentation on how to specify these.
+
+### HookHandler
+
+The actual behaviour for your parser hook is implemented in an implementation of HookHandler.
+These implementations have a handle method which gets a Parser and a ParamProcssor\ProcessingResult,
+which is supposed to return a string.
+
+### Knitting it all together
+
+This library also provides two additional classes, FunctionRunner, and HookRegistrant. The former
+takes care of invoking the ParamProcessor library based on a HookDefinition. The later takes care
+of registering the parser hooks defined by your HookDefinition objects to a MediaWiki Parser object.
+
+```php
+$awesomeHookDefinition = new HookDefinition( 'awesome', array( /* ... */ ) );
+$anotherHookDefinition = new HookDefinition( 'another', array( /* ... */ ) );
+
+$awesomeHookHandler = new AwesomeHookHandler( /* ... */ );
+$anotherHookHandler = new AnotherHookHandler( /* ... */ );
+
+$hookRegistrant = new HookRegistrant( $mediaWikiParser );
+
+$hookRegistrant->registerFunction( new FunctionRunner( $awesomeHookDefinition, $awesomeHookHandler ) );
+$hookRegistrant->registerFunction( new FunctionRunner( $anotherHookDefinition, $anotherHookHandler ) );
+```
+
+If you want to have the same hook, but with other default behaviour, you can avoid any kind of
+duplication by doing something as follows on top of the above code:
+
+```php
+$hookRegistrant->registerFunction( new FunctionRunner( $extraAwesomeHookDefinition, $awesomeHookHandler ) );
+```
+
+Where $extraAwesomeHookDefinition is a variation of $awesomeHookDefinition.
 
 ## Tests
 
