@@ -78,14 +78,11 @@ class FunctionRunner {
 	 * @since 0.1
 	 *
 	 * @param Parser $parser
+	 * @param string[] $arguments
 	 *
 	 * @return mixed
 	 */
-	public function run( Parser &$parser /*, n args */ ) {
-		$arguments = func_get_args();
-
-		array_shift( $arguments );
-
+	public function run( Parser &$parser, array $arguments ) {
 		$this->paramProcessor->setFunctionParams(
 			$arguments,
 			$this->definition->getParameters(),
