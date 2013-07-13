@@ -2,6 +2,9 @@
 
 namespace ParserHooks;
 
+use ParamProcessor\Processor;
+use Parser;
+
 /**
  * Class that handles a parser function hook call coming from MediaWiki
  * by processing the parameters as declared in the hook definition and
@@ -49,7 +52,7 @@ class FunctionRunner {
 	/**
 	 * @since 0.1
 	 *
-	 * @var \ParamProcessor\Processor
+	 * @var Processor
 	 */
 	protected $paramProcessor;
 
@@ -58,14 +61,14 @@ class FunctionRunner {
 	 *
 	 * @param HookDefinition $definition
 	 * @param HookHandler $handler
-	 * @param \ParamProcessor\Processor|null $paramProcessor
+	 * @param Processor|null $paramProcessor
 	 */
-	public function __construct( HookDefinition $definition, HookHandler $handler, \ParamProcessor\Processor $paramProcessor = null ) {
+	public function __construct( HookDefinition $definition, HookHandler $handler, Processor $paramProcessor = null ) {
 		$this->definition = $definition;
 		$this->handler = $handler;
 
 		if ( $paramProcessor === null ) {
-			$paramProcessor = \ParamProcessor\Processor::newDefault();
+			$paramProcessor = Processor::newDefault();
 		}
 
 		$this->paramProcessor = $paramProcessor;
@@ -74,11 +77,11 @@ class FunctionRunner {
 	/**
 	 * @since 0.1
 	 *
-	 * @param \Parser $parser
+	 * @param Parser $parser
 	 *
 	 * @return mixed
 	 */
-	public function run( \Parser &$parser /*, n args */ ) {
+	public function run( Parser &$parser /*, n args */ ) {
 		$arguments = func_get_args();
 
 		array_shift( $arguments );

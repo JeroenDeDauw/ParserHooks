@@ -36,14 +36,14 @@ class HookRegistrant {
 	/**
 	 * @since 0.1
 	 *
-	 * @var \Parser
+	 * @var Parser
 	 */
 	protected $parser;
 
 	/**
 	 * @since 0.1
 	 *
-	 * @param \Parser $parser
+	 * @param Parser $parser
 	 */
 	public function __construct( Parser &$parser ) {
 		$this->parser = $parser;

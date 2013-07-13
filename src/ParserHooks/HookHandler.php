@@ -3,6 +3,7 @@
 namespace ParserHooks;
 
 use ParamProcessor\ProcessingResult;
+use Parser;
 
 /**
  * Interface for objects that can handle a parser hook call of
@@ -38,11 +39,11 @@ interface HookHandler {
 	 *
 	 * @since 0.1
 	 *
-	 * @param \Parser $parser
+	 * @param Parser $parser
 	 * @param ProcessingResult $result
 	 *
 	 * @return mixed
 	 */
-	public function handle( \Parser $parser, ProcessingResult $result );
+	public function handle( Parser $parser, ProcessingResult $result );
 
 }
