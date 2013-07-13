@@ -21,7 +21,8 @@
 	},
 	"require": {
 		"php": ">=5.3.0",
-		"param-processor/param-processor": ">=1.0@dev"
+		"param-processor/param-processor": ">=1.0@dev",
+		"minimum-stability" : "dev"
 	},
 	"autoload": {
 		"files" : [
