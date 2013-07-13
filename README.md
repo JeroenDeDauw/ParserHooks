@@ -1,5 +1,4 @@
 [![Build Status](https://secure.travis-ci.org/wikimedia/mediawiki-extensions-ParserHooks.png?branch=master)](http://travis-ci.org/wikimedia/mediawiki-extensions-ParserHooks)
-
 # ParserHooks
 
 OOP interface for creating MediaWiki parser hooks in a declarative fashion.
