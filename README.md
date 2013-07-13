@@ -7,6 +7,7 @@ OOP interface for creating MediaWiki parser hooks in a declarative fashion.
 
 * PHP 5.3 or later
 * ParamProcessor library 1.0 or later
+* MediaWiki 1.16 or later
 
 ## Installation
 
