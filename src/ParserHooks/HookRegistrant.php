@@ -59,7 +59,7 @@ class HookRegistrant {
 			$this->parser->setFunctionHook(
 				$name,
 				function( $parser, $frame, $arguments ) use ( $runner ) {
-					$runner->run( $parser, $arguments );
+					return $runner->run( $parser, $arguments );
 				},
 				SFH_OBJECT_ARGS
 			);
