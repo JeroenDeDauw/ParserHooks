@@ -20,7 +20,8 @@
 		"wiki": "https://www.mediawiki.org/wiki/Extension:ParserHooks"
 	},
 	"require": {
-		"php": ">=5.3.0"
+		"php": ">=5.3.0",
+		"param-processor/param-processor": ">=1.0@dev"
 	},
 	"autoload": {
 		"files" : [
