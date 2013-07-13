@@ -86,9 +86,6 @@ class FunctionRunner {
 
 		array_shift( $arguments );
 
-		$names = $this->definition->getNames();
-		$this->paramProcessor->getOptions()->setName( $names[0] );
-
 		$this->paramProcessor->setFunctionParams(
 			$arguments,
 			$this->definition->getParameters(),
