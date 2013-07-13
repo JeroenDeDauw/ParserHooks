@@ -23,7 +23,7 @@ use Parser;
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  * http://www.gnu.org/copyleft/gpl.html
  *
- * @since 0.1
+ * @since 1.0
  *
  * @file
  * @ingroup ParserHooks
@@ -34,14 +34,14 @@ use Parser;
 class HookRegistrant {
 
 	/**
-	 * @since 0.1
+	 * @since 1.0
 	 *
 	 * @var Parser
 	 */
 	protected $parser;
 
 	/**
-	 * @since 0.1
+	 * @since 1.0
 	 *
 	 * @param Parser $parser
 	 */
@@ -50,7 +50,7 @@ class HookRegistrant {
 	}
 
 	/**
-	 * @since 0.1
+	 * @since 1.0
 	 *
 	 * @param FunctionRunner $runner
 	 */

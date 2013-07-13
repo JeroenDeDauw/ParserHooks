@@ -3,7 +3,7 @@
 /**
  * PHPUnit bootstrap file for the ParserHooks extension.
  *
- * @since 0.1
+ * @since 1.0
  *
  * @file
  * @ingroup ParserHooks

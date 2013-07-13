@@ -25,7 +25,7 @@ use Parser;
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  * http://www.gnu.org/copyleft/gpl.html
  *
- * @since 0.1
+ * @since 1.0
  *
  * @file
  * @ingroup ParserHooks
@@ -36,28 +36,28 @@ use Parser;
 class FunctionRunner {
 
 	/**
-	 * @since 0.1
+	 * @since 1.0
 	 *
 	 * @var HookDefinition
 	 */
 	protected $definition;
 
 	/**
-	 * @since 0.1
+	 * @since 1.0
 	 *
 	 * @var HookHandler
 	 */
 	protected $handler;
 
 	/**
-	 * @since 0.1
+	 * @since 1.0
 	 *
 	 * @var Processor
 	 */
 	protected $paramProcessor;
 
 	/**
-	 * @since 0.1
+	 * @since 1.0
 	 *
 	 * @param HookDefinition $definition
 	 * @param HookHandler $handler
@@ -75,7 +75,7 @@ class FunctionRunner {
 	}
 
 	/**
-	 * @since 0.1
+	 * @since 1.0
 	 *
 	 * @param Parser $parser
 	 * @param string[] $arguments
@@ -96,7 +96,7 @@ class FunctionRunner {
 	}
 
 	/**
-	 * @since 0.1
+	 * @since 1.0
 	 *
 	 * @return HookHandler
 	 */
@@ -105,7 +105,7 @@ class FunctionRunner {
 	}
 
 	/**
-	 * @since 0.1
+	 * @since 1.0
 	 *
 	 * @return HookDefinition
 	 */
