@@ -8,9 +8,9 @@ OOP interface for creating MediaWiki parser hooks in a declarative fashion.
 
 ## Requirements
 
-* PHP 5.3 or later
-* ParamProcessor library 1.0 or later
-* MediaWiki 1.16 or later
+* [PHP](http://php.net/) 5.3 or later
+* [ParamProcessor](https://www.mediawiki.org/wiki/Extension:ParamProcessor) 1.0 or later
+* [MediaWiki](https://www.mediawiki.org/) 1.16 or later
 
 ## Installation
 
@@ -111,9 +111,7 @@ as a hobby project to support the [SubPageList MediaWiki extension](https://www.
 
 ## Release notes
 
-### 0.1
-
-2013-07-14
+### 0.1 (2013-07-14)
 
 * Initial release ([blog post](http://www.bn2vs.com/blog/2013/07/14/parserhooks-declarative-oop-api-for-mediawiki-released/))
 
