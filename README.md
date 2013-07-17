@@ -115,7 +115,7 @@ as a hobby project to support the [SubPageList MediaWiki extension](https://www.
 
 2013-07-14
 
-* Initial release.
+* Initial release ([blog post](http://www.bn2vs.com/blog/2013/07/14/parserhooks-declarative-oop-api-for-mediawiki-released/))
 
 ## Links
 
