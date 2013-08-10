@@ -121,6 +121,13 @@ $messages['tl'] = array(
 	'parserhooks-desc' => 'Ugnayang-mukha ng Object-Oriented Programming o OOP para sa paglikha ng mga kawit ng  banghay ng MediaWiki na nasa gawi na nagpapahayag',
 );
 
+/** Ukrainian (українська)
+ * @author Andriykopanytsia
+ */
+$messages['uk'] = array(
+	'parserhooks-desc' => 'Інтерфейс ООП для сворення аналізатора MediaWiki, приєднаному у декларативному стилі',
+);
+
 /** Simplified Chinese (中文（简体）‎)
  * @author Yfdyh000
  */
