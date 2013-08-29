@@ -107,6 +107,13 @@ $messages['nl'] = array(
 	'parserhooks-desc' => 'OOP-interface voor het maken van parserhooks voor MediaWiki op een declarative wijze',
 );
 
+/** Occitan (occitan)
+ * @author Cedric31
+ */
+$messages['oc'] = array(
+	'parserhooks-desc' => "L’interfàcia OOP per crear d'amòrças a l’analisador MediaWiki trabalha en mòde declaratiu",
+);
+
 /** tarandíne (tarandíne)
  * @author Joetaras
  */
