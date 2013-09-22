@@ -8,8 +8,6 @@ use ParserHooks\HookRegistrant;
 /**
  * @covers ParserHooks\HookRegistrant
  *
- * @file
- * @ingroup ParserHooks
  * @group ParserHooks
  *
  * @licence GNU GPL v2+

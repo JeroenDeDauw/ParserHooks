@@ -11,9 +11,6 @@ use Parser;
  *
  * @since 1.0
  *
- * @file
- * @ingroup ParserHooks
- *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */

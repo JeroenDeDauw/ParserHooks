@@ -114,7 +114,15 @@ as a hobby project to support the [SubPageList MediaWiki extension](https://www.
 
 ## Release notes
 
-### 0.1 (2013-07-14)
+### 1.0.1 (2013-09-22)
+
+* Improved HookDefinition documentation
+* Added extra type checking in HookDefinition
+* Added extra tests for HookDefinition
+* Added coveralls.io support
+* Added PHPUnit file whitelisting (for more accurate and faster generated coverage reports)
+
+### 1.0 (2013-07-14)
 
 * Initial release ([blog post](http://www.bn2vs.com/blog/2013/07/14/parserhooks-declarative-oop-api-for-mediawiki-released/))
 

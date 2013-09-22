@@ -9,9 +9,6 @@ use InvalidArgumentException;
  *
  * @since 1.0
  *
- * @file
- * @ingroup ParserHooks
- *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
@@ -27,6 +24,8 @@ class HookDefinition {
 	 * @param string|string[] $names
 	 * @param array $parameters
 	 * @param string|string[] $defaultParameters
+	 *
+	 * TODO: document type of $parameters
 	 *
 	 * @throws InvalidArgumentException
 	 */

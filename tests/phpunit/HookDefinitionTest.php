@@ -7,8 +7,6 @@ use ParserHooks\HookDefinition;
 /**
  * @covers ParserHooks\HookDefinition
  *
- * @file
- * @ingroup ParserHooks
  * @group ParserHooks
  *
  * @licence GNU GPL v2+

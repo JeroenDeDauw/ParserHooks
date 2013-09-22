@@ -10,8 +10,6 @@ use ParserHooks\HookDefinition;
 /**
  * @covers ParserHooks\FunctionRunner
  *
- * @file
- * @ingroup ParserHooks
  * @group ParserHooks
  *
  * @licence GNU GPL v2+
