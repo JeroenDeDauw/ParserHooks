@@ -1,8 +1,10 @@
 # ParserHooks
 
-[![Latest Stable Version](https://poser.pugx.org/mediawiki/parser-hooks/version.png)](https://packagist.org/packages/mediawiki/parser-hooks)
-[![Latest Stable Version](https://poser.pugx.org/mediawiki/parser-hooks/d/total.png)](https://packagist.org/packages/mediawiki/parser-hooks)
 [![Build Status](https://secure.travis-ci.org/wikimedia/mediawiki-extensions-ParserHooks.png?branch=master)](http://travis-ci.org/wikimedia/mediawiki-extensions-ParserHooks)
+
+On Packagist:
+[![Latest Stable Version](https://poser.pugx.org/mediawiki/parser-hooks/version.png)](https://packagist.org/packages/mediawiki/parser-hooks)
+[![Download count](https://poser.pugx.org/mediawiki/parser-hooks/d/total.png)](https://packagist.org/packages/mediawiki/parser-hooks)
 
 OOP interface for creating MediaWiki parser hooks in a declarative fashion.
 
