@@ -2,6 +2,8 @@
 
 namespace ParserHooks\Tests;
 
+use ParserHooks\HookDefinition;
+
 /**
  * @covers ParserHooks\HookDefinition
  *
@@ -31,7 +33,7 @@ class HookDefinitionTest extends \PHPUnit_Framework_TestCase {
 	 * @param string|string[] $names
 	 */
 	public function testGetNames( $names ) {
-		$definition = new \ParserHooks\HookDefinition( $names );
+		$definition = new HookDefinition( $names );
 		$obtainedNames = $definition->getNames();
 
 		$this->assertInternalType( 'array', $obtainedNames );
@@ -51,7 +53,7 @@ class HookDefinitionTest extends \PHPUnit_Framework_TestCase {
 	 * @param array $parameters
 	 */
 	public function testGetParameters( array $parameters ) {
-		$definition = new \ParserHooks\HookDefinition( 'foo', $parameters );
+		$definition = new HookDefinition( 'foo', $parameters );
 
 		$this->assertEquals( $parameters, $definition->getParameters() );
 	}
@@ -73,7 +75,7 @@ class HookDefinitionTest extends \PHPUnit_Framework_TestCase {
 	 * @param string|string[] $defaultParameters
 	 */
 	public function testGetDefaultParameters( $defaultParameters ) {
-		$definition = new \ParserHooks\HookDefinition( 'foo', array(), $defaultParameters );
+		$definition = new HookDefinition( 'foo', array(), $defaultParameters );
 		$obtainedDefaultParams = $definition->getDefaultParameters();
 
 		$this->assertInternalType( 'array', $obtainedDefaultParams );
@@ -87,6 +89,35 @@ class HookDefinitionTest extends \PHPUnit_Framework_TestCase {
 				return array( $element );
 			},
 			$elements
+		);
+	}
+
+	public function testCannotConstructWithEmptyNameList() {
+		$this->setExpectedException( 'InvalidArgumentException' );
+		new HookDefinition( array() );
+	}
+
+	public function testCannotConstructWithNonStringName() {
+		$this->setExpectedException( 'InvalidArgumentException' );
+		new HookDefinition( 42 );
+	}
+
+	public function testCannotConstructWithNonStringNames() {
+		$this->setExpectedException( 'InvalidArgumentException' );
+		new HookDefinition( array( 'foo', 42, 'bar' ) );
+	}
+
+	public function testCannotConstructWithNonStringDefaultArg() {
+		$this->setExpectedException( 'InvalidArgumentException' );
+		new HookDefinition( 'foo', array(), 42 );
+	}
+
+	public function testCannotConstructWithNonStringDefaultArgs() {
+		$this->setExpectedException( 'InvalidArgumentException' );
+		new HookDefinition(
+			'foo',
+			array(),
+			array( 'foo', 42, 'bar' )
 		);
 	}
 
