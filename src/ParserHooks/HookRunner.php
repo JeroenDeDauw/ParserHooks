@@ -4,6 +4,8 @@ namespace ParserHooks;
 
 use ParamProcessor\Processor;
 use Parser;
+use ParserHooks\Internal\Runner;
+use PPFrame;
 
 /**
  * Class that handles a parser hook hook call coming from MediaWiki
@@ -15,46 +17,19 @@ use Parser;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class HookRunner {
+class HookRunner extends Runner {
+
+	const OPT_DO_PARSE = 'parse'; // Boolean, since 1.1
 
 	/**
-	 * @since 1.1
-	 *
-	 * @var HookDefinition
+	 * @var Parser
 	 */
-	protected $definition;
+	private $parser;
 
 	/**
-	 * @since 1.1
-	 *
-	 * @var HookHandler
+	 * @var PPFrame
 	 */
-	protected $handler;
-
-	/**
-	 * @since 1.1
-	 *
-	 * @var Processor
-	 */
-	protected $paramProcessor;
-
-	/**
-	 * @since 1.1
-	 *
-	 * @param HookDefinition $definition
-	 * @param HookHandler $handler
-	 * @param Processor|null $paramProcessor
-	 */
-	public function __construct( HookDefinition $definition, HookHandler $handler, Processor $paramProcessor = null ) {
-		$this->definition = $definition;
-		$this->handler = $handler;
-
-		if ( $paramProcessor === null ) {
-			$paramProcessor = Processor::newDefault();
-		}
-
-		$this->paramProcessor = $paramProcessor;
-	}
+	private $frame;
 
 	/**
 	 * @since 1.1
@@ -62,16 +37,18 @@ class HookRunner {
 	 * @param string $text
 	 * @param string[] $arguments
 	 * @param Parser $parser
+	 * @param PPFrame $frame
 	 *
 	 * @return mixed
 	 */
-	public function run( $text, array $arguments, Parser &$parser ) {
-		$arguments = $this->getRawArgsList( $text, $arguments );
+	public function run( $text, array $arguments, Parser &$parser, PPFrame $frame ) {
+		$this->parser = $parser;
+		$this->frame = $frame;
 
-		return $this->handler->handle(
-			$parser,
-			$this->getProcessedArgs( $arguments )
-		);
+		$rawArgs = $this->getRawArgsList( $text, $arguments );
+		$resultText = $this->getResultText( $rawArgs );
+
+		return $this->getProcessedResultText( $resultText );
 	}
 
 	protected function getRawArgsList( $text, array $arguments ) {
@@ -86,6 +63,13 @@ class HookRunner {
 		return $arguments;
 	}
 
+	protected function getResultText( array $rawArgs ) {
+		return $this->handler->handle(
+			$this->parser,
+			$this->getProcessedArgs( $rawArgs )
+		);
+	}
+
 	protected function getProcessedArgs( array $rawArgs ) {
 		$this->paramProcessor->setParameters(
 			$rawArgs,
@@ -95,22 +79,25 @@ class HookRunner {
 		return $this->paramProcessor->processParameters();
 	}
 
-	/**
-	 * @since 1.1
-	 *
-	 * @return HookHandler
-	 */
-	public function getHandler() {
-		return $this->handler;
+	protected function getProcessedResultText( $resultText ) {
+		if ( $this->getOption( self::OPT_DO_PARSE ) ) {
+			return $this->parser->recursiveTagParse( $resultText, $this->frame );
+		}
+
+		return $resultText;
 	}
 
 	/**
+	 * @see Runner::getDefaultOptions
+	 *
 	 * @since 1.1
 	 *
-	 * @return HookDefinition
+	 * @return array
 	 */
-	public function getDefinition() {
-		return $this->definition;
+	protected function getDefaultOptions() {
+		return array(
+			self::OPT_DO_PARSE => true,
+		);
 	}
 
 }

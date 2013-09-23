@@ -3,6 +3,7 @@
 namespace ParserHooks;
 
 use Parser;
+use PPFrame;
 
 /**
  * Parser hook runner registrant.
@@ -40,7 +41,7 @@ class HookRegistrant {
 		foreach ( $runner->getDefinition()->getNames() as $name ) {
 			$this->parser->setFunctionHook(
 				$name,
-				function( Parser  $parser, $frame, $arguments ) use ( $runner ) {
+				function( Parser $parser, $frame, $arguments ) use ( $runner ) {
 					return $runner->run( $parser, $arguments );
 				}
 			);
@@ -68,8 +69,8 @@ class HookRegistrant {
 		foreach ( $runner->getDefinition()->getNames() as $name ) {
 			$this->parser->setHook(
 				$name,
-				function( $text, array $arguments, Parser $parser, $frame ) use ( $runner ) {
-					return $runner->run( $text, $arguments, $parser );
+				function( $text, array $arguments, Parser $parser, PPFrame $frame ) use ( $runner ) {
+					return $runner->run( $text, $arguments, $parser, $frame );
 				}
 			);
 		}

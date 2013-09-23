@@ -2,8 +2,8 @@
 
 namespace ParserHooks;
 
-use ParamProcessor\Processor;
 use Parser;
+use ParserHooks\Internal\Runner;
 
 /**
  * Class that handles a parser function hook call coming from MediaWiki
@@ -15,46 +15,9 @@ use Parser;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class FunctionRunner {
+class FunctionRunner extends Runner {
 
-	/**
-	 * @since 1.0
-	 *
-	 * @var HookDefinition
-	 */
-	protected $definition;
-
-	/**
-	 * @since 1.0
-	 *
-	 * @var HookHandler
-	 */
-	protected $handler;
-
-	/**
-	 * @since 1.0
-	 *
-	 * @var Processor
-	 */
-	protected $paramProcessor;
-
-	/**
-	 * @since 1.0
-	 *
-	 * @param HookDefinition $definition
-	 * @param HookHandler $handler
-	 * @param Processor|null $paramProcessor
-	 */
-	public function __construct( HookDefinition $definition, HookHandler $handler, Processor $paramProcessor = null ) {
-		$this->definition = $definition;
-		$this->handler = $handler;
-
-		if ( $paramProcessor === null ) {
-			$paramProcessor = Processor::newDefault();
-		}
-
-		$this->paramProcessor = $paramProcessor;
-	}
+	const OPT_DO_PARSE = 'parse'; // Boolean, since 1.1
 
 	/**
 	 * @since 1.0
@@ -62,41 +25,53 @@ class FunctionRunner {
 	 * @param Parser $parser
 	 * @param string|string[] $arguments
 	 *
-	 * @return mixed
+	 * @return array
 	 */
 	public function run( Parser &$parser, $arguments ) {
-		if ( is_string( $arguments ) ) {
-			$arguments = explode( '|', $arguments );
+		$resultText = $this->handler->handle(
+			$parser,
+			$this->getProcessedParams( $arguments )
+		);
+
+		return $this->getResultStructure( $resultText );
+	}
+
+	protected function getProcessedParams( $rawArguments ) {
+		if ( is_string( $rawArguments ) ) {
+			$rawArguments = explode( '|', $rawArguments );
 		}
 
 		$this->paramProcessor->setFunctionParams(
-			$arguments,
+			$rawArguments,
 			$this->definition->getParameters(),
 			$this->definition->getDefaultParameters()
 		);
 
-		return $this->handler->handle(
-			$parser,
-			$this->paramProcessor->processParameters()
+		return $this->paramProcessor->processParameters();
+	}
+
+	protected function getResultStructure( $resultText ) {
+		$result = array( $resultText );
+
+		if ( !$this->getOption( self::OPT_DO_PARSE ) ) {
+			$result['noparse'] = true;
+			$result['isHTML'] = true;
+		}
+
+		return $result;
+	}
+
+	/**
+	 * @see Runner::getDefaultOptions
+	 *
+	 * @since 1.1
+	 *
+	 * @return array
+	 */
+	protected function getDefaultOptions() {
+		return array(
+			self::OPT_DO_PARSE => true,
 		);
-	}
-
-	/**
-	 * @since 1.0
-	 *
-	 * @return HookHandler
-	 */
-	public function getHandler() {
-		return $this->handler;
-	}
-
-	/**
-	 * @since 1.0
-	 *
-	 * @return HookDefinition
-	 */
-	public function getDefinition() {
-		return $this->definition;
 	}
 
 }
