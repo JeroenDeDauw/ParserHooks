@@ -88,18 +88,36 @@ $anotherHookHandler = new AnotherHookHandler( /* ... */ );
 
 $hookRegistrant = new HookRegistrant( $mediaWikiParser );
 
-$hookRegistrant->registerFunction( new FunctionRunner( $awesomeHookDefinition, $awesomeHookHandler ) );
-$hookRegistrant->registerFunction( new FunctionRunner( $anotherHookDefinition, $anotherHookHandler ) );
+$hookRegistrant->registerFunctionHandler( $awesomeHookDefinition, $awesomeHookHandler );
+$hookRegistrant->registerFunctionHandler( $anotherHookDefinition, $anotherHookHandler );
 ```
 
 If you want to have the same hook, but with other default behaviour, you can avoid any kind of
 duplication by doing something as follows on top of the above code:
 
 ```php
-$hookRegistrant->registerFunction( new FunctionRunner( $extraAwesomeHookDefinition, $awesomeHookHandler ) );
+$hookRegistrant->registerFunctionHandler( $extraAwesomeHookDefinition, $awesomeHookHandler );
 ```
 
 Where $extraAwesomeHookDefinition is a variation of $awesomeHookDefinition.
+
+### Parser functions and tag hooks
+
+To register a parser function, use HookRegistrant::registerFunctionHandler.
+
+```php
+$hookRegistrant->registerFunctionHandler( $awesomeHookDefinition, $awesomeHookHandler );
+```
+
+To register a tag hook, use HookRegistrant::registerHookHandler.
+
+```php
+$hookRegistrant->registerHookHandler( $awesomeHookDefinition, $awesomeHookHandler );
+```
+
+Both functions take the exact same arguments, so once you created a HookDefinition and
+a HookHandler, you can have them registered as both parser function and tag hook with
+no extra work.
 
 ## Tests
 
@@ -116,6 +134,8 @@ as a hobby project to support the [SubPageList MediaWiki extension](https://www.
 
 ### 1.1.0 (2013-09-23)
 
+* Added HookRunner and HookRegistrant::registerHook
+* Added HookRegistrant::registerFunctionHandler and HookRegistrant::registerHookHandler
 * Fixed parameter handling bug in FunctionRunner.
 
 ### 1.0.1 (2013-09-22)
