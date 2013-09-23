@@ -18,7 +18,7 @@ use ParserHooks\HookDefinition;
 class FunctionRunnerTest extends \PHPUnit_Framework_TestCase {
 
 	public function testTrue() {
-		$expectedResult = 'foo bar baz';
+		$expectedResult = array( 'foo bar baz' );
 
 		$definition = new HookDefinition( 'someHook' );
 
@@ -29,7 +29,7 @@ class FunctionRunnerTest extends \PHPUnit_Framework_TestCase {
 		$hookHandler->expects( $this->once() )
 			->method( 'handle' )
 			->with( $this->equalTo( $parser ) )
-			->will( $this->returnValue( $expectedResult ) );
+			->will( $this->returnValue( $expectedResult[0] ) );
 
 		$paramProcessor = $this->getMockBuilder( 'ParamProcessor\Processor' )
 			->disableOriginalConstructor()->getMock();
@@ -48,6 +48,7 @@ class FunctionRunnerTest extends \PHPUnit_Framework_TestCase {
 		$runner = new FunctionRunner(
 			$definition,
 			$hookHandler,
+			array(),
 			$paramProcessor
 		);
 
