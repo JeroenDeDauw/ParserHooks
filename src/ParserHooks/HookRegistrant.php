@@ -40,12 +40,51 @@ class HookRegistrant {
 		foreach ( $runner->getDefinition()->getNames() as $name ) {
 			$this->parser->setFunctionHook(
 				$name,
-				function( $parser, $frame, $arguments ) use ( $runner ) {
+				function( Parser  $parser, $frame, $arguments ) use ( $runner ) {
 					return $runner->run( $parser, $arguments );
-				},
-				SFH_OBJECT_ARGS
+				}
 			);
 		}
+	}
+
+	/**
+	 * Register a parser function.
+	 *
+	 * @since 1.1
+	 *
+	 * @param HookDefinition $definition
+	 * @param HookHandler $handler
+	 */
+	public function registerFunctionHandler( HookDefinition $definition, HookHandler $handler ) {
+		$this->registerFunction( new FunctionRunner( $definition, $handler ) );
+	}
+
+	/**
+	 * @since 1.0
+	 *
+	 * @param HookRunner $runner
+	 */
+	public function registerHook( HookRunner $runner ) {
+		foreach ( $runner->getDefinition()->getNames() as $name ) {
+			$this->parser->setHook(
+				$name,
+				function( $text, array $arguments, Parser $parser, $frame ) use ( $runner ) {
+					return $runner->run( $text, $arguments, $parser );
+				}
+			);
+		}
+	}
+
+	/**
+	 * Register a tag function.
+	 *
+	 * @since 1.1
+	 *
+	 * @param HookDefinition $definition
+	 * @param HookHandler $handler
+	 */
+	public function registerHookHandler( HookDefinition $definition, HookHandler $handler ) {
+		$this->registerHook( new HookRunner( $definition, $handler ) );
 	}
 
 }

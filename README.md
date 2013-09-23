@@ -114,6 +114,10 @@ as a hobby project to support the [SubPageList MediaWiki extension](https://www.
 
 ## Release notes
 
+### 1.1.0 (2013-09-23)
+
+* Fixed parameter handling bug in FunctionRunner.
+
 ### 1.0.1 (2013-09-22)
 
 * Improved HookDefinition documentation
