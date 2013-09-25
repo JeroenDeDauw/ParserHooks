@@ -9,6 +9,7 @@ use ParserHooks\HookDefinition;
 
 /**
  * @covers ParserHooks\FunctionRunner
+ * @covers ParserHooks\Internal\Runner
  *
  * @group ParserHooks
  *
