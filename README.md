@@ -139,6 +139,8 @@ as a hobby project to support the [SubPageList MediaWiki extension](https://gith
 * Fixed parameter handling bug in FunctionRunner
 * Improved HookRegistrantTest
 
+You can [read the release blog post](http://www.bn2vs.com/blog/2013/09/25/parserhooks-1-1-released/)
+
 ### 1.0.1 (2013-09-22)
 
 * Improved HookDefinition documentation
@@ -156,5 +158,7 @@ as a hobby project to support the [SubPageList MediaWiki extension](https://gith
 * [ParserHooks on Packagist](https://packagist.org/packages/mediawiki/parser-hooks)
 * [ParserHooks on Ohloh](https://www.ohloh.net/p/parserhooks)
 * [ParserHooks on MediaWiki.org](https://www.mediawiki.org/wiki/Extension:ParserHooks)
+* [ParserHooks on Scrutinizer CI](https://scrutinizer-ci.com/g/wikimedia/mediawiki-extensions-ParserHooks)
+* [ParserHooks on coveralls.io](https://coveralls.io/r/wikimedia/mediawiki-extensions-ParserHooks)
 * [TravisCI build status](https://travis-ci.org/wikimedia/mediawiki-extensions-ParserHooks)
 * [Latest version of the readme file](https://github.com/wikimedia/mediawiki-extensions-ParserHooks/blob/master/README.md)
