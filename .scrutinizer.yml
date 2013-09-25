@@ -1,7 +1,7 @@
 inherit: true
 
 before_commands:
-  - "composer install --prefer-source"
+  - "bash .scrutinizer.sh"
 
 tools:
     php_code_coverage: true
