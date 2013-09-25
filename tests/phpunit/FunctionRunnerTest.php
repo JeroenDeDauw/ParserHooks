@@ -18,44 +18,99 @@ use ParserHooks\HookDefinition;
  */
 class FunctionRunnerTest extends \PHPUnit_Framework_TestCase {
 
-	public function testTrue() {
-		$expectedResult = array( 'foo bar baz' );
+	public function optionsProvider() {
+		return array(
+			array(
+				array(
+					FunctionRunner::OPT_DO_PARSE => true,
+				),
+			),
+			array(
+				array(
+					FunctionRunner::OPT_DO_PARSE => false,
+				),
+			),
+		);
+	}
+
+	const HOOK_HANDLER_RESULT = 'hook handler result';
+
+	protected $options;
+
+	protected $parser;
+
+	/**
+	 * @dataProvider optionsProvider
+	 */
+	public function testRun( array $options ) {
+		$this->options = $options;
 
 		$definition = new HookDefinition( 'someHook' );
 
-		$parser = $this->getMock( 'Parser' );
+		$this->parser = $this->getMock( 'Parser' );
 
-		$hookHandler = $this->getMock( 'ParserHooks\HookHandler' );
+		$inputParams = array(
+			'foo' => 'bar',
+			'baz' => 42,
+		);
 
-		$hookHandler->expects( $this->once() )
-			->method( 'handle' )
-			->with( $this->equalTo( $parser ) )
-			->will( $this->returnValue( $expectedResult[0] ) );
+		$processedParams = new ProcessingResult( array(
+			'foo' => new ProcessedParam( 'foo', 'bar', false )
+		) );
 
-		$paramProcessor = $this->getMockBuilder( 'ParamProcessor\Processor' )
-			->disableOriginalConstructor()->getMock();
+		$paramProcessor = $this->newMockParamProcessor( $inputParams, $processedParams );
 
-		$paramProcessor->expects( $this->once() )
-			->method( 'setFunctionParams' );
-
-		$paramProcessor->expects( $this->once() )
-			->method( 'processParameters' )
-			->will( $this->returnValue(
-				new ProcessingResult( array(
-					'foo' => new ProcessedParam( 'foo', 'bar', false )
-				) )
-			) );
+		$hookHandler = $this->newMockHookHandler( $processedParams );
 
 		$runner = new FunctionRunner(
 			$definition,
 			$hookHandler,
-			array(),
+			$this->options,
 			$paramProcessor
 		);
 
-		$result = $runner->run( $parser, array() );
+		$result = $runner->run( $this->parser, $inputParams );
+		$this->assertResultIsValid( $result );
+	}
 
-		$this->assertEquals( $expectedResult, $result );
+	protected function assertResultIsValid( $result ) {
+		$expected = array( self::HOOK_HANDLER_RESULT );
+
+		if ( !$this->options[FunctionRunner::OPT_DO_PARSE] ) {
+			$expected['noparse'] = true;
+			$expected['isHTML'] = true;
+		}
+
+		$this->assertEquals( $expected, $result );
+	}
+
+	protected function newMockHookHandler( $expectedParameters ) {
+		$hookHandler = $this->getMock( 'ParserHooks\HookHandler' );
+
+		$hookHandler->expects( $this->once() )
+			->method( 'handle' )
+			->with(
+				$this->equalTo( $this->parser ),
+				$this->equalTo( $expectedParameters )
+			)
+			->will( $this->returnValue( self::HOOK_HANDLER_RESULT ) );
+
+		return $hookHandler;
+	}
+
+	protected function newMockParamProcessor( $expandedParams, $processedParams ) {
+		$paramProcessor = $this->getMockBuilder( 'ParamProcessor\Processor' )
+			->disableOriginalConstructor()->getMock();
+
+		$paramProcessor->expects( $this->once() )
+			->method( 'setFunctionParams' )
+			->with( $this->equalTo( $expandedParams ) );
+
+		$paramProcessor->expects( $this->once() )
+			->method( 'processParameters' )
+			->will( $this->returnValue( $processedParams ) );
+
+		return $paramProcessor;
 	}
 
 }
