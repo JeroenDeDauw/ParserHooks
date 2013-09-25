@@ -15,12 +15,11 @@ use ParserHooks\HookRegistrant;
  */
 class HookRegistrantTest extends \PHPUnit_Framework_TestCase {
 
-	// TODO: figure out how to assert this properly
 	public function namesProvider() {
 		return array(
 			array( array( 'foo' ) ),
-//			array( array( 'foo', 'bar' ) ),
-//			array( array( 'foo', 'bar', 'baz', 'bah' ) ),
+			array( array( 'foo', 'bar' ) ),
+			array( array( 'foo', 'bar', 'baz', 'bah' ) ),
 		);
 	}
 
@@ -71,27 +70,24 @@ class HookRegistrantTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	protected function newMockParserForFunction( array $names ) {
-		$parser = $this->getMock( 'Parser' );
-
-		$parser->expects( $this->exactly( count( $names ) ) )
-			->method( 'setFunctionHook' )
-			->with(
-				$this->equalTo( $names[0] ),
-				$this->isType( 'callable' )
-			);
-
-		return $parser;
+		return $this->newMockParser( $names, 'setFunctionHook' );
 	}
 
 	protected function newMockParserForHook( array $names ) {
+		return $this->newMockParser( $names, 'setHook' );
+	}
+
+	protected function newMockParser( array $names, $expectedMethod ) {
 		$parser = $this->getMock( 'Parser' );
 
-		$parser->expects( $this->exactly( count( $names ) ) )
-			->method( 'setHook' )
-			->with(
-				$this->equalTo( $names[0] ),
-				$this->isType( 'callable' )
-			);
+		foreach ( $names as $index => $name ) {
+			$parser->expects( $this->at( $index ) )
+				->method( $expectedMethod )
+				->with(
+					$this->equalTo( $name ),
+					$this->isType( 'callable' )
+				);
+		}
 
 		return $parser;
 	}
