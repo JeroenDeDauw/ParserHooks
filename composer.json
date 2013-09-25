@@ -2,7 +2,7 @@
 	"name": "mediawiki/parser-hooks",
 	"description": "Adds a OOP and declarative parser hook interface on top of MediaWiki",
 	"keywords": ["parserhooks", "mediawiki", "parser function", "parser hook", "tag extension"],
-	"homepage": "https://www.mediawiki.org/wiki/Extension:ParserHooks",
+	"homepage": "https://github.com/wikimedia/mediawiki-extensions-ParserHooks/blob/master/README.md",
 	"license": "GPL-2.0+",
 	"authors": [
 		{

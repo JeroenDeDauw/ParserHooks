@@ -128,15 +128,16 @@ via TravisCI, as a TravisCI configuration file is also provided in the root dire
 ## Authors
 
 ParserHooks has been written by [Jeroen De Dauw](https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw)
-as a hobby project to support the [SubPageList MediaWiki extension](https://www.mediawiki.org/wiki/Extension:SubPageList).
+as a hobby project to support the [SubPageList MediaWiki extension](https://github.com/wikimedia/mediawiki-extensions-SubPageList/blob/master/README.md).
 
 ## Release notes
 
-### 1.1.0 (2013-09-23)
+### 1.1.0 (2013-09-25)
 
 * Added HookRunner and HookRegistrant::registerHook
 * Added HookRegistrant::registerFunctionHandler and HookRegistrant::registerHookHandler
-* Fixed parameter handling bug in FunctionRunner.
+* Fixed parameter handling bug in FunctionRunner
+* Improved HookRegistrantTest
 
 ### 1.0.1 (2013-09-22)
 
