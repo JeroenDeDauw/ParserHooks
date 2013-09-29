@@ -118,6 +118,13 @@ $messages['roa-tara'] = array(
 	'parserhooks-desc' => "Inderfacce OOP pe ccrejà 'nu gance analizzatore de MediaUicchi jndr'à 'nu modelle dichiarative",
 );
 
+/** Russian (русский)
+ * @author Okras
+ */
+$messages['ru'] = array(
+	'parserhooks-desc' => 'Интерфейс ООП для создания перехватчиков (хуков) анализатора MediaWiki в декларативном стиле',
+);
+
 /** Tagalog (Tagalog)
  * @author AnakngAraw
  */
