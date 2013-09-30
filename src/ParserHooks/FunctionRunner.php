@@ -2,6 +2,7 @@
 
 namespace ParserHooks;
 
+use ParamProcessor\Processor;
 use Parser;
 use ParserHooks\Internal\Runner;
 use PPFrame;
@@ -19,6 +20,18 @@ use PPFrame;
 class FunctionRunner extends Runner {
 
 	const OPT_DO_PARSE = 'parse'; // Boolean, since 1.1
+
+	/**
+	 * @since 1.1
+	 *
+	 * @param HookDefinition $definition
+	 * @param HookHandler $handler
+	 * @param array $options
+	 * @param Processor|null $paramProcessor
+	 */
+	public function __construct( HookDefinition $definition, HookHandler $handler, array $options = array(), Processor $paramProcessor = null ) {
+		parent::__construct( $definition, $handler, $options, $paramProcessor );
+	}
 
 	/**
 	 * @since 1.0

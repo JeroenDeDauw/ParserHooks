@@ -16,6 +16,9 @@
         <testsuite name="ParserHooks">
             <directory>tests/phpunit</directory>
         </testsuite>
+        <testsuite name="ParserHooksSlow">
+            <directory>tests/system</directory>
+        </testsuite>
     </testsuites>
     <filter>
         <whitelist addUncoveredFilesFromWhitelist="true">

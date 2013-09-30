@@ -79,6 +79,7 @@ call_user_func( function() {
 	);
 
 	$wgExtensionMessagesFiles['ParserHooksExtension'] = __DIR__ . '/ParserHooks.i18n.php';
+	$GLOBALS['wgExtensionMessagesFiles']['ParserFunctionTest'] = __DIR__ . '/tests/system/TagHookTest.i18n.php';
 
 	/**
 	 * Hook to add PHPUnit test cases.
@@ -91,7 +92,7 @@ call_user_func( function() {
 	 * @return boolean
 	 */
 	$wgHooks['UnitTestsList'][]	= function( array &$files ) {
-		$directoryIterator = new RecursiveDirectoryIterator( __DIR__ . '/tests/phpunit/' );
+		$directoryIterator = new RecursiveDirectoryIterator( __DIR__ . '/tests/' );
 
 		/**
 		 * @var SplFileInfo $fileInfo

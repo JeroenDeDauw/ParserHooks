@@ -34,6 +34,18 @@ class HookRunner extends Runner {
 	/**
 	 * @since 1.1
 	 *
+	 * @param HookDefinition $definition
+	 * @param HookHandler $handler
+	 * @param array $options
+	 * @param Processor|null $paramProcessor
+	 */
+	public function __construct( HookDefinition $definition, HookHandler $handler, array $options = array(), Processor $paramProcessor = null ) {
+		parent::__construct( $definition, $handler, $options, $paramProcessor );
+	}
+
+	/**
+	 * @since 1.1
+	 *
 	 * @param string $text
 	 * @param string[] $arguments
 	 * @param Parser $parser

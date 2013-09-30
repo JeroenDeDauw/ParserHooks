@@ -136,6 +136,7 @@ as a hobby project to support the [SubPageList MediaWiki extension](https://gith
 ### 1.2 (2013-09-30)
 
 * Fixed parameter handling bug in FunctionRunner
+* Added system test for tag hook handling
 
 ### 1.1 (2013-09-25)
 
