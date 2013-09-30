@@ -110,13 +110,23 @@ class TagHookTest extends \PHPUnit_Framework_TestCase {
 			->method( 'handle' )
 			->with(
 				$this->isInstanceOf( 'Parser' ),
-				$this->equalTo(
-					new ProcessingResult( array(
+				$this->callback( function( $var ) {
+					if ( !( $var instanceof ProcessingResult ) ) {
+						return false;
+					}
+
+					$params = $var->getParameters();
+					$expectedParams = array(
 						'name' => new ProcessedParam( 'name', 'Jeroen', false, 'name', 'Jeroen' ),
 						'awesomeness' => new ProcessedParam( 'awesomeness', 9001, true, null, null ),
 						'1337' => new ProcessedParam( '1337', true, false, '1337', 'yes' ),
-					) )
-				)
+					);
+
+					asort( $params );
+					asort( $expectedParams );
+
+					return $params == $expectedParams;
+				} )
 			)
 			->will( $this->returnCallback( function( Parser $parser, ProcessingResult $result ) {
 				$params = $result->getParameters();
