@@ -133,7 +133,11 @@ as a hobby project to support the [SubPageList MediaWiki extension](https://gith
 
 ## Release notes
 
-### 1.1.0 (2013-09-25)
+### 1.2 (2013-09-30)
+
+* Fixed parameter handling bug in FunctionRunner
+
+### 1.1 (2013-09-25)
 
 * Added HookRunner and HookRegistrant::registerHook
 * Added HookRegistrant::registerFunctionHandler and HookRegistrant::registerHookHandler

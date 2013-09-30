@@ -3,6 +3,7 @@
 namespace ParserHooks;
 
 use InvalidArgumentException;
+use ParamProcessor\ParamDefinition;
 
 /**
  * Definition of a parser hooks signature.
@@ -22,7 +23,7 @@ class HookDefinition {
 	 * @since 1.0
 	 *
 	 * @param string|string[] $names
-	 * @param array $parameters
+	 * @param ParamDefinition[] $parameters
 	 * @param string|string[] $defaultParameters
 	 *
 	 * TODO: document type of $parameters
@@ -84,7 +85,7 @@ class HookDefinition {
 	 *
 	 * @since 1.0
 	 *
-	 * @return array
+	 * @return ParamDefinition[]
 	 */
 	public function getParameters() {
 		return $this->parameters;

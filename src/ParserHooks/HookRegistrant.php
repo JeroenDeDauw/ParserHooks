@@ -41,9 +41,10 @@ class HookRegistrant {
 		foreach ( $runner->getDefinition()->getNames() as $name ) {
 			$this->parser->setFunctionHook(
 				$name,
-				function( Parser $parser, $frame, $arguments ) use ( $runner ) {
-					return $runner->run( $parser, $arguments );
-				}
+				function( Parser $parser, PPFrame $frame, array $arguments ) use ( $runner ) {
+					return $runner->run( $parser, $arguments, $frame );
+				},
+				SFH_OBJECT_ARGS
 			);
 		}
 	}

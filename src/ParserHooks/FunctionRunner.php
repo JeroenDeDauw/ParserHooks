@@ -4,6 +4,7 @@ namespace ParserHooks;
 
 use Parser;
 use ParserHooks\Internal\Runner;
+use PPFrame;
 
 /**
  * Class that handles a parser function hook call coming from MediaWiki
@@ -23,24 +24,31 @@ class FunctionRunner extends Runner {
 	 * @since 1.0
 	 *
 	 * @param Parser $parser
-	 * @param string|string[] $arguments
+	 * @param string[] $arguments
+	 * @param PPFrame $frame
 	 *
 	 * @return array
 	 */
-	public function run( Parser &$parser, $arguments ) {
+	public function run( Parser &$parser, array $arguments, PPFrame $frame ) {
 		$resultText = $this->handler->handle(
 			$parser,
-			$this->getProcessedParams( $arguments )
+			$this->getProcessedParams( $this->getExpandedParams( $arguments, $frame ) )
 		);
 
 		return $this->getResultStructure( $resultText );
 	}
 
-	protected function getProcessedParams( $rawArguments ) {
-		if ( is_string( $rawArguments ) ) {
-			$rawArguments = explode( '|', $rawArguments );
+	protected function getExpandedParams( array $rawArguments, PPFrame $frame ) {
+		$rawArgList = array();
+
+		foreach( $rawArguments as $arg ) {
+			$rawArgList[] = $frame->expand( $arg );
 		}
 
+		return $rawArgList;
+	}
+
+	protected function getProcessedParams( array $rawArguments ) {
 		$this->paramProcessor->setFunctionParams(
 			$rawArguments,
 			$this->definition->getParameters(),
