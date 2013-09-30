@@ -24,7 +24,7 @@ class FunctionRunner extends Runner {
 	 * @since 1.0
 	 *
 	 * @param Parser $parser
-	 * @param string[] $arguments
+	 * @param array $arguments
 	 * @param PPFrame $frame
 	 *
 	 * @return array
@@ -48,9 +48,9 @@ class FunctionRunner extends Runner {
 		return $rawArgList;
 	}
 
-	protected function getProcessedParams( array $rawArguments ) {
+	protected function getProcessedParams( array $expendedArgs ) {
 		$this->paramProcessor->setFunctionParams(
-			$rawArguments,
+			$expendedArgs,
 			$this->definition->getParameters(),
 			$this->definition->getDefaultParameters()
 		);

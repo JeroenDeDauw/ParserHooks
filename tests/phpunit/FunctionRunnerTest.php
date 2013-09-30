@@ -50,8 +50,8 @@ class FunctionRunnerTest extends \PHPUnit_Framework_TestCase {
 		$this->parser = $this->getMock( 'Parser' );
 
 		$inputParams = array(
-			'foo' => 'bar',
-			'baz' => 42,
+			'foo=bar',
+			'baz=42',
 		);
 
 		$processedParams = new ProcessingResult( array(
@@ -69,7 +69,18 @@ class FunctionRunnerTest extends \PHPUnit_Framework_TestCase {
 			$paramProcessor
 		);
 
-		$result = $runner->run( $this->parser, $inputParams );
+		$frame = $this->getMock( 'PPFrame' );
+
+		$frame->expects( $this->exactly( count( $inputParams ) ) )
+			->method( 'expand' )
+			->will( $this->returnArgument( 0 ) );
+
+		$result = $runner->run(
+			$this->parser,
+			$inputParams,
+			$frame
+		);
+
 		$this->assertResultIsValid( $result );
 	}
 
