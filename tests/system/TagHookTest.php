@@ -117,13 +117,17 @@ class TagHookTest extends \PHPUnit_Framework_TestCase {
 
 					$params = $var->getParameters();
 					$expectedParams = array(
-						'name' => new ProcessedParam( 'name', 'Jeroen', false, 'name', 'Jeroen' ),
-						'awesomeness' => new ProcessedParam( 'awesomeness', 9001, true, null, null ),
 						'1337' => new ProcessedParam( '1337', true, false, '1337', 'yes' ),
+						'awesomeness' => new ProcessedParam( 'awesomeness', 9001, true, null, null ),
+						'name' => new ProcessedParam( 'name', 'Jeroen', false, 'name', 'Jeroen' ),
 					);
 
 					asort( $params );
 					asort( $expectedParams );
+
+					if ($params != $expectedParams) {
+						var_dump($params);var_dump($expectedParams); exit;
+					}
 
 					return $params == $expectedParams;
 				} )
