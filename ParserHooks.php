@@ -79,7 +79,6 @@ call_user_func( function() {
 	);
 
 	$wgExtensionMessagesFiles['ParserHooksExtension'] = __DIR__ . '/ParserHooks.i18n.php';
-	$GLOBALS['wgExtensionMessagesFiles']['ParserFunctionTest'] = __DIR__ . '/tests/system/TagHookTest.i18n.php';
 
 	/**
 	 * Hook to add PHPUnit test cases.

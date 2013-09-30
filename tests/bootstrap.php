@@ -12,3 +12,5 @@
 require_once( __DIR__ . '/evilMediaWikiBootstrap.php' );
 
 require_once( __DIR__ . '/../ParserHooks.php' );
+
+$GLOBALS['wgExtensionMessagesFiles']['TagHookTest'] = __DIR__ . '/system/TagHookTest.i18n.php';

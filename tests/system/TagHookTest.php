@@ -48,7 +48,7 @@ class TagHookTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertInternalType( 'string', $result );
 		$this->assertEquals(
-			"||Jeroen|||",
+			"||-Jeroen-|||",
 			$result
 		);
 	}
@@ -120,7 +120,7 @@ class TagHookTest extends \PHPUnit_Framework_TestCase {
 			)
 			->will( $this->returnCallback( function( Parser $parser, ProcessingResult $result ) {
 				$params = $result->getParameters();
-				return $params['name']->getValue();
+				return '-' . $params['name']->getValue() . '-';
 			} ) );
 
 		return $hookHandler;
