@@ -125,10 +125,6 @@ class TagHookTest extends \PHPUnit_Framework_TestCase {
 					asort( $params );
 					asort( $expectedParams );
 
-					if ($params != $expectedParams) {
-						var_dump($params);var_dump($expectedParams); exit;
-					}
-
 					return $params == $expectedParams;
 				} )
 			)
