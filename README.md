@@ -13,7 +13,7 @@ OOP interface for creating MediaWiki parser hooks in a declarative fashion.
 ## Requirements
 
 * [PHP](http://php.net/) 5.3 or later
-* [ParamProcessor](https://www.mediawiki.org/wiki/Extension:ParamProcessor) 1.0 or later
+* [Validator](https://www.mediawiki.org/wiki/Extension:Validator) 1.0.0.1 or later
 * [MediaWiki](https://www.mediawiki.org/) 1.16 or later
 
 ## Installation
@@ -129,9 +129,14 @@ via TravisCI, as a TravisCI configuration file is also provided in the root dire
 ## Authors
 
 ParserHooks has been written by [Jeroen De Dauw](https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw)
-as a hobby project to support the [SubPageList MediaWiki extension](https://github.com/wikimedia/mediawiki-extensions-SubPageList/blob/master/README.md).
+as a hobby project to support the [SubPageList MediaWiki extension]
+(https://github.com/wikimedia/mediawiki-extensions-SubPageList/blob/master/README.md).
 
 ## Release notes
+
+### 1.2.1 (2013-11-22)
+
+* Updated the used Validator version from 1.0 alpha to 1.0.0.1 stable, or later
 
 ### 1.2 (2013-09-30)
 
@@ -167,4 +172,3 @@ You can [read the release blog post](http://www.bn2vs.com/blog/2013/09/25/parser
 * [ParserHooks on Scrutinizer CI](https://scrutinizer-ci.com/g/wikimedia/mediawiki-extensions-ParserHooks)
 * [ParserHooks on coveralls.io](https://coveralls.io/r/wikimedia/mediawiki-extensions-ParserHooks)
 * [TravisCI build status](https://travis-ci.org/wikimedia/mediawiki-extensions-ParserHooks)
-* [Latest version of the readme file](https://github.com/wikimedia/mediawiki-extensions-ParserHooks/blob/master/README.md)
