@@ -41,6 +41,13 @@ $messages['de'] = array(
 	'parserhooks-desc' => 'Ergänzt eine OOP-Schnittstelle zum Erstellen von Parsererweiterungen',
 );
 
+/** Persian (فارسی)
+ * @author Armin1392
+ */
+$messages['fa'] = array(
+	'parserhooks-desc' => 'رابط اوپ برای ایجاد قلاب‌های تجزیه‌کنندهٔ مدیاویکی در یک سبک اعلانی',
+);
+
 /** French (français)
  * @author Gomoko
  */
@@ -109,6 +116,13 @@ $messages['nl'] = array(
  */
 $messages['oc'] = array(
 	'parserhooks-desc' => "L’interfàcia OOP per crear d'amòrças a l’analisador MediaWiki trabalha en mòde declaratiu",
+);
+
+/** Portuguese (português)
+ * @author Hamilton Abreu
+ */
+$messages['pt'] = array(
+	'parserhooks-desc' => "Interface orientada para objetos, para criação de ''hooks'' do analisador sintático do MediaWiki de forma declarativa",
 );
 
 /** tarandíne (tarandíne)
