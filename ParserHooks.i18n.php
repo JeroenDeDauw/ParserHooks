@@ -101,7 +101,7 @@ $messages['ksh'] = array(
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
-	'parserhooks-desc' => 'OOP-посредник за создавање на парсерски куки за МедијаВики на декларативен начин',
+	'parserhooks-desc' => 'OOP-посредник за создавање на расчленувачки куки за МедијаВики на исказен начин',
 );
 
 /** Dutch (Nederlands)
