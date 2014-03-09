@@ -104,6 +104,13 @@ $messages['mk'] = array(
 	'parserhooks-desc' => 'OOP-посредник за создавање на расчленувачки куки за МедијаВики на исказен начин',
 );
 
+/** Malayalam (മലയാളം)
+ * @author Praveenp
+ */
+$messages['ml'] = array(
+	'parserhooks-desc' => 'നിർവ്വചിച്ചിരിക്കുന്ന രീതിയിൽ മീഡിയവിക്കി പാഴ്സർ കൊളുത്തുകൾ നിർമ്മിക്കാനുള്ള ഒ.ഒ.പി. സങ്കേതം',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */
