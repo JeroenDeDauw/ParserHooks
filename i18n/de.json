@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Kghbln",
-            "Metalhead64"
-        ]
-    },
-    "parserhooks-desc": "Ergänzt eine OOP-Schnittstelle zum Erstellen von Parsererweiterungen"
+	"@metadata": {
+		"authors": [
+			"Kghbln",
+			"Metalhead64"
+		]
+	},
+	"parserhooks-desc": "Ergänzt eine OOP-Schnittstelle zum Erstellen von Parsererweiterungen"
 }

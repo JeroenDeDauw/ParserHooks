@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Toliño"
-        ]
-    },
-    "parserhooks-desc": "Interface OOP para crear asociadores do analizador de MediaWiki de modo declarativo"
+	"@metadata": {
+		"authors": [
+			"Toliño"
+		]
+	},
+	"parserhooks-desc": "Interface OOP para crear asociadores do analizador de MediaWiki de modo declarativo"
 }
