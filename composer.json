@@ -8,7 +8,7 @@
 		"parser hook",
 		"tag extension"
 	],
-	"homepage": "https://github.com/wikimedia/mediawiki-extensions-ParserHooks/blob/master/README.md",
+	"homepage": "https://github.com/JeroenDeDauw/ParserHooks/blob/master/README.md",
 	"license": "GPL-2.0+",
 	"authors": [
 		{
