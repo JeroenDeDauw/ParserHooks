@@ -20,7 +20,7 @@ mysql -e 'create database its_a_mw;'
 php maintenance/install.php --dbtype $DBTYPE --dbuser root --dbname its_a_mw --dbpath $(pwd) --pass nyan TravisWiki admin
 
 cd extensions/ParserHooks
-composer install
+composer install --prefer-source
 
 cd ../..
 echo 'require_once( __DIR__ . "/extensions/ParserHooks/ParserHooks.php" );' >> LocalSettings.php
