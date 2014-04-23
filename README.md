@@ -2,7 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/JeroenDeDauw/ParserHooks.png?branch=master)](http://travis-ci.org/JeroenDeDauw/ParserHooks)
 [![Coverage Status](https://coveralls.io/repos/wikimedia/mediawiki-extensions-ParserHooks/badge.png?branch=master)](https://coveralls.io/r/wikimedia/mediawiki-extensions-ParserHooks?branch=master)
-[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/wikimedia/mediawiki-extensions-ParserHooks/badges/quality-score.png?s=4bb1f1eb158d908113cc7677993e847d7b095a8f)](https://scrutinizer-ci.com/g/wikimedia/mediawiki-extensions-ParserHooks/)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/JeroenDeDauw/ParserHooks/badges/quality-score.png?s=2faf8e83be1e5ecd58a8f9f65cb47a01e966302e)](https://scrutinizer-ci.com/g/JeroenDeDauw/ParserHooks/)
 
 On Packagist:
 [![Latest Stable Version](https://poser.pugx.org/mediawiki/parser-hooks/version.png)](https://packagist.org/packages/mediawiki/parser-hooks)
