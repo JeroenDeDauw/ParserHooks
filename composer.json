@@ -19,10 +19,7 @@
 		}
 	],
 	"support": {
-		"issues": "https://bugzilla.wikimedia.org/",
-		"irc": "irc://irc.freenode.net/mediawiki",
-		"forum": "https://www.mediawiki.org/wiki/Extension_talk:ParserHooks",
-		"wiki": "https://www.mediawiki.org/wiki/Extension:ParserHooks"
+		"irc": "irc://irc.freenode.net/mediawiki"
 	},
 	"require": {
 		"php": ">=5.3.0",
