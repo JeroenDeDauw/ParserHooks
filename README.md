@@ -1,6 +1,6 @@
 # ParserHooks
 
-[![Build Status](https://secure.travis-ci.org/wikimedia/mediawiki-extensions-ParserHooks.png?branch=master)](http://travis-ci.org/wikimedia/mediawiki-extensions-ParserHooks)
+[![Build Status](https://secure.travis-ci.org/JeroenDeDauw/ParserHooks.png?branch=master)](http://travis-ci.org/JeroenDeDauw/ParserHooks)
 [![Coverage Status](https://coveralls.io/repos/wikimedia/mediawiki-extensions-ParserHooks/badge.png?branch=master)](https://coveralls.io/r/wikimedia/mediawiki-extensions-ParserHooks?branch=master)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/wikimedia/mediawiki-extensions-ParserHooks/badges/quality-score.png?s=4bb1f1eb158d908113cc7677993e847d7b095a8f)](https://scrutinizer-ci.com/g/wikimedia/mediawiki-extensions-ParserHooks/)
 
