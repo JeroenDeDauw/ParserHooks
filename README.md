@@ -134,6 +134,11 @@ as a hobby project to support the [SubPageList MediaWiki extension]
 
 ## Release notes
 
+### 1.3 (dev)
+
+* Updated i18n message files
+* Changed class loading to PSR-4
+
 ### 1.2.1 (2013-11-22)
 
 * Updated the used Validator version from 1.0 alpha to 1.0.0.1 stable, or later
