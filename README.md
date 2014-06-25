@@ -134,7 +134,7 @@ as a hobby project to support the [SubPageList MediaWiki extension]
 
 ## Release notes
 
-### 1.3 (dev)
+### 1.3 (2014-06-25)
 
 * Updated i18n message files
 * Changed class loading to PSR-4
