@@ -130,7 +130,7 @@ via TravisCI, as a TravisCI configuration file is also provided in the root dire
 
 ParserHooks has been written by [Jeroen De Dauw](https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw)
 as a hobby project to support the [SubPageList MediaWiki extension]
-(https://github.com/wikimedia/mediawiki-extensions-SubPageList/blob/master/README.md).
+(https://github.com/JeroenDeDauw/SubPageList/blob/master/README.md).
 
 ## Release notes
 
@@ -138,6 +138,7 @@ as a hobby project to support the [SubPageList MediaWiki extension]
 
 * Updated i18n message files
 * Changed class loading to PSR-4
+* Updated the used Validator version to 2.x >= 2.0.4
 
 ### 1.2.1 (2013-11-22)
 
