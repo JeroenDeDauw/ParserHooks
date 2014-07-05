@@ -65,8 +65,8 @@ class are used in handling of actual parser hooks, though can also be used in ot
 For instance, you can feed these definitions to a tool that generates parser hook documentation
 based on them.
 
-The parameter definitions are ParamProcessor\ParamDefinition objects. See the ParamProcessor
-documentation on how to specify these.
+The parameter definitions are ParamProcessor\ParamDefinition objects. See the [ParamProcessor]
+(https://github.com/JeroenDeDauw/ParamProcessor) documentation on how to specify these.
 
 ### HookHandler
 
