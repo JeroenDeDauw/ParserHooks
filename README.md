@@ -13,7 +13,7 @@ OOP interface for creating MediaWiki parser hooks in a declarative fashion.
 ## Requirements
 
 * [PHP](http://php.net/) 5.3 or later
-* [Validator](https://github.com/JeroenDeDauw/Validator) 1.0.0.1 or later
+* [Validator](https://github.com/JeroenDeDauw/Validator) 2.0 or later
 * [MediaWiki](https://www.mediawiki.org/) 1.16 or later
 
 ## Installation
