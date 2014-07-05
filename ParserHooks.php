@@ -2,8 +2,7 @@
 /**
  * Initialization file for the ParserHooks MediaWiki extension.
  *
- * Documentation: https://github.com/wikimedia/mediawiki-extensions-ParserHooks/blob/master/README.md
- * Support: https://www.mediawiki.org/wiki/Extension_talk:ParserHooks
+ * https://github.com/JeroenDeDauw/ParserHooks
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >

@@ -142,6 +142,7 @@ as a hobby project to support the [SubPageList MediaWiki extension]
 ### 1.4 (2014-07-05)
 
 * Changed the PHPUnit bootstrap so that the tests can be run via the MediaWiki test runner
+* Updated the CI configuration to test the code against multiple MediaWiki versions
 
 ### 1.3 (2014-06-25)
 
