@@ -126,6 +126,11 @@ This library comes with a set up PHPUnit tests that cover all non-trivial code. 
 tests using the PHPUnit configuration file found in the root directory. The tests can also be run
 via TravisCI, as a TravisCI configuration file is also provided in the root directory.
 
+The tests can be run for the `tests/phpunit` directory of your MediaWiki installation
+with this command:
+
+    php phpunit.php -c ../../extensions/ParserHooks/
+
 ## Authors
 
 ParserHooks has been written by [Jeroen De Dauw](https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw)
@@ -133,6 +138,10 @@ as a hobby project to support the [SubPageList MediaWiki extension]
 (https://github.com/JeroenDeDauw/SubPageList/blob/master/README.md).
 
 ## Release notes
+
+### 1.4 (2014-07-05)
+
+* Changed the PHPUnit bootstrap so that the tests can be run via the MediaWiki test runner
 
 ### 1.3 (2014-06-25)
 

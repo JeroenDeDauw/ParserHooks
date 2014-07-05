@@ -13,8 +13,14 @@ if ( php_sapi_name() !== 'cli' ) {
 	die( 'Not an entry point' );
 }
 
-require_once( __DIR__ . '/evilMediaWikiBootstrap.php' );
+if ( is_readable( $path = __DIR__ . '/../vendor/autoload.php' ) ) {
+	print( "\nUsing the local vendor autoloader ...\n\n" );
+} elseif ( is_readable( $path = __DIR__ . '/../../../vendor/autoload.php' ) ) {
+	print( "\nUsing the MediaWiki vendor autoloader ...\n\n" );
+} else {
+	die( 'To run tests it is required that packages are installed using Composer.' );
+}
 
-require_once( __DIR__ . '/../ParserHooks.php' );
+$autoloader = require $path;
 
 $GLOBALS['wgExtensionMessagesFiles']['TagHookTest'] = __DIR__ . '/system/TagHookTest.i18n.php';
