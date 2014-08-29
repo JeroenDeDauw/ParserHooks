@@ -10,6 +10,8 @@ On Packagist:
 
 OOP interface for creating MediaWiki parser hooks in a declarative fashion.
 
+This is a PHP library for MediaWiki extensions. It does not in itself add or enhance functionality of your wiki.
+
 ## Requirements
 
 * [PHP](http://php.net/) 5.3 or later
