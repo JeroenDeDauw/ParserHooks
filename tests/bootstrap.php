@@ -9,9 +9,12 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
  
-if ( php_sapi_name() !== 'cli' ) {
+if ( PHP_SAPI !== 'cli' ) {
 	die( 'Not an entry point' );
 }
+
+error_reporting( E_ALL | E_STRICT );
+ini_set( 'display_errors', 1 );
 
 if ( is_readable( $path = __DIR__ . '/../vendor/autoload.php' ) ) {
 	print( "\nUsing the local vendor autoloader ...\n\n" );
@@ -21,6 +24,6 @@ if ( is_readable( $path = __DIR__ . '/../vendor/autoload.php' ) ) {
 	die( 'To run tests it is required that packages are installed using Composer.' );
 }
 
-$autoloader = require $path;
+require $path;
 
 $GLOBALS['wgExtensionMessagesFiles']['TagHookTest'] = __DIR__ . '/system/TagHookTest.i18n.php';
