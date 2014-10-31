@@ -14,7 +14,10 @@ cd phase3
 
 git checkout $MW
 
-composer require 'phpunit/phpunit=3.7.*' --prefer-source
+if [ "$MW" != "1.21.0" ]
+then
+	composer require 'phpunit/phpunit=3.7.*' --prefer-source
+fi
 
 if [ "$DB" == "postgres" ]
 then
