@@ -35,6 +35,11 @@ cp -r $originalDirectory ParserHooks
 cd ParserHooks
 composer install --prefer-source
 
+if [ "$MW" == "1.21.0" ]
+then
+	composer require 'phpunit/phpunit=3.7.*' --prefer-source
+fi
+
 cd ../..
 
 echo 'require_once( __DIR__ . "/extensions/ParserHooks/ParserHooks.php" );' >> LocalSettings.php
