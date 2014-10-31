@@ -14,6 +14,8 @@ cd phase3
 
 git checkout $MW
 
+composer require 'phpunit/phpunit=3.7.*' --prefer-source
+
 if [ "$DB" == "postgres" ]
 then
 	psql -c 'create database its_a_mw;' -U postgres
@@ -40,5 +42,4 @@ echo '$wgShowExceptionDetails = true;' >> LocalSettings.php
 echo '$wgDevelopmentWarnings = true;' >> LocalSettings.php
 echo "putenv( 'MW_INSTALL_PATH=$(pwd)' );" >> LocalSettings.php
 
-composer require 'phpunit/phpunit=3.7.*' --prefer-source
 php maintenance/update.php --quick
