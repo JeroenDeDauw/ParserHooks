@@ -23,10 +23,17 @@ class HookDefinition {
 	 * @since 1.0
 	 *
 	 * @param string|string[] $names
+	 * The name or the names of your parser hook.
+	 * 
 	 * @param ParamDefinition[] $parameters
+	 * The definitions of the parameters your parser hook accepts.
+	 * For more information on ParamDefinition, see the ParamProcessor
+	 * documentation at https://github.com/JeroenDeDauw/ParamProcessor
+	 * 
 	 * @param string|string[] $defaultParameters
-	 *
-	 * TODO: document type of $parameters
+	 * An ordered list of parameter names, denoting which parameters are the defaults.
+	 * If the user specifies a value without indicating the parameter name, the
+	 * first default parameter is used.
 	 *
 	 * @throws InvalidArgumentException
 	 */
