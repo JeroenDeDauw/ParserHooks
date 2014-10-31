@@ -29,7 +29,6 @@ cp -r $originalDirectory ParserHooks
 
 cd ParserHooks
 composer install --prefer-source
-composer require 'phpunit/phpunit=3.7.*' --prefer-source
 
 cd ../..
 
@@ -41,4 +40,5 @@ echo '$wgShowExceptionDetails = true;' >> LocalSettings.php
 echo '$wgDevelopmentWarnings = true;' >> LocalSettings.php
 echo "putenv( 'MW_INSTALL_PATH=$(pwd)' );" >> LocalSettings.php
 
+composer require 'phpunit/phpunit=3.7.*' --prefer-source
 php maintenance/update.php --quick
