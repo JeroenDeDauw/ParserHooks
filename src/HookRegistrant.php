@@ -44,7 +44,7 @@ class HookRegistrant {
 				function( Parser $parser, PPFrame $frame, array $arguments ) use ( $runner ) {
 					return $runner->run( $parser, $arguments, $frame );
 				},
-				SFH_OBJECT_ARGS
+				Parser::SFH_OBJECT_ARGS
 			);
 		}
 	}
