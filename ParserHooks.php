@@ -19,11 +19,6 @@ if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
 	include_once( __DIR__ . '/vendor/autoload.php' );
 }
 
-// Only initialize the extension when all dependencies are present.
-if ( !defined( 'ParamProcessor_VERSION' ) ) {
-	throw new Exception( 'You need to have the ParamProcessor library loaded in order to use ParserHooks' );
-}
-
 call_user_func( function() {
 	global $wgExtensionCredits, $wgExtensionMessagesFiles, $wgHooks, $wgMessagesDirs;
 
