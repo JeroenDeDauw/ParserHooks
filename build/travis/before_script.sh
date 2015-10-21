@@ -14,8 +14,10 @@ cd phase3
 
 git checkout $MW
 
-if [ "$MW" != "1.21.0" ]
+if [ "$MW" == "1.21.0" ]
 then
+	composer install
+else
 	composer require 'phpunit/phpunit=3.7.*' --prefer-source
 fi
 
