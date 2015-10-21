@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Shirayuki"
+			"Shirayuki",
+			"Umherirrender"
 		]
 	},
-	"parserhooks-desc": "{{desc|name=Parser Hooks|url=http://www.mediawiki.org/wiki/Extension:ParserHooks}}\nOOP stands for Object-Oriented Programming."
+	"parserhooks-desc": "{{desc|name=Parser Hooks|url=https://www.mediawiki.org/wiki/Extension:ParserHooks}}\nOOP stands for Object-Oriented Programming."
 }
