@@ -30,3 +30,5 @@ notifications:
       - jeroendedauw@gmail.com
     on_success: change
     on_failure: always
+
+sudo: false
