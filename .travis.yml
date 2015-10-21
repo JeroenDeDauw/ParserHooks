@@ -18,9 +18,7 @@ matrix:
   exclude:
     - env: THENEEDFORTHIS=FAIL
 
-before_script:
-  - travis_retry composer self-update
-  - bash ./build/travis/before_script.sh
+before_script: bash ./build/travis/before_script.sh
 
 script: bash ./build/travis/script.sh
 
