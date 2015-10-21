@@ -8,7 +8,7 @@ cd ..
 
 wget https://github.com/wikimedia/mediawiki/archive/$MW.tar.gz
 tar -zxf $MW.tar.gz
-mv mediawiki-$MW phase3
+mv $MW phase3
 
 cd phase3
 
