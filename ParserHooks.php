@@ -36,13 +36,6 @@ call_user_func( function() {
 	$wgMessagesDirs['ParserHooksExtension'] = __DIR__ . '/i18n';
 	$wgExtensionMessagesFiles['ParserHooksExtension'] = __DIR__ . '/ParserHooks.i18n.php';
 
-	$wgAutoloadClasses['ParserHooks\FunctionRunner'] = '/src/FunctionRunner.php';
-	$wgAutoloadClasses['ParserHooks\HookDefinition'] = '/src/HookDefinition.php';
-	$wgAutoloadClasses['ParserHooks\HookHandler'] = '/src/HookHandler.php';
-	$wgAutoloadClasses['ParserHooks\HookRegistrant'] = '/src/HookRegistrant.php';
-	$wgAutoloadClasses['ParserHooks\HookRunner'] = '/src/HookRunner.php';
-	$wgAutoloadClasses['ParserHooks\Internal\Runner'] = '/src/Internal/Runner.php';
-
 	/**
 	 * Hook to add PHPUnit test cases.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UnitTestsList
