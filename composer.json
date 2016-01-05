@@ -26,7 +26,7 @@
 		"param-processor/param-processor": "~1.2"
 	},
 	"require-dev": {
-		"jakub-onderka/php-parallel-lint": "0.9"
+		"jakub-onderka/php-parallel-lint": "0.9.2"
 	},
 	"scripts": {
 		"test": [
@@ -34,7 +34,7 @@
 		]
 	},
 	"autoload": {
-		"files" : [
+		"files": [
 			"ParserHooks.php"
 		],
 		"psr-4": {
