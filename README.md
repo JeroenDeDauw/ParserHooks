@@ -14,8 +14,7 @@ This is a PHP library for MediaWiki extensions. It does not in itself add or enh
 
 ## Requirements
 
-* [PHP](http://php.net/) 5.3 or later
-* [Validator](https://github.com/JeroenDeDauw/Validator) 2.0 or later
+* [PHP](http://php.net/) 5.3 or later (including PHP 7)
 * [MediaWiki](https://www.mediawiki.org/) 1.16 or later
 
 ## Installation
@@ -33,7 +32,7 @@ ParserHooks 1.4:
 
     {
         "require": {
-            "mediawiki/parser-hooks": "~1.4"
+            "mediawiki/parser-hooks": "~1.5"
         }
     }
 
@@ -141,6 +140,10 @@ as a hobby project to support the [SubPageList MediaWiki extension]
 
 ## Release notes
 
+### 1.5 (2016-03-05)
+
+
+
 ### 1.4 (2014-07-05)
 
 * Changed the PHPUnit bootstrap so that the tests can be run via the MediaWiki test runner
@@ -168,7 +171,7 @@ as a hobby project to support the [SubPageList MediaWiki extension]
 * Fixed parameter handling bug in FunctionRunner
 * Improved HookRegistrantTest
 
-You can [read the release blog post](http://www.bn2vs.com/blog/2013/09/25/parserhooks-1-1-released/)
+You can [read the release blog post](https://www.entropywins.wtf/blog/2013/09/25/parserhooks-1-1-released/)
 
 ### 1.0.1 (2013-09-22)
 
@@ -180,13 +183,13 @@ You can [read the release blog post](http://www.bn2vs.com/blog/2013/09/25/parser
 
 ### 1.0 (2013-07-14)
 
-* Initial release ([blog post](http://www.bn2vs.com/blog/2013/07/14/parserhooks-declarative-oop-api-for-mediawiki-released/))
+* Initial release ([blog post](https://www.entropywins.wtf/blog/2013/07/14/parserhooks-declarative-oop-api-for-mediawiki-released/))
 
 ## Links
 
 * [ParserHooks on Packagist](https://packagist.org/packages/mediawiki/parser-hooks)
 * [ParserHooks on Ohloh](https://www.ohloh.net/p/parserhooks)
 * [ParserHooks on MediaWiki.org](https://www.mediawiki.org/wiki/Extension:ParserHooks)
-* [ParserHooks on Scrutinizer CI](https://scrutinizer-ci.com/g/wikimedia/mediawiki-extensions-ParserHooks)
+* [ParserHooks on Scrutinizer CI](https://scrutinizer-ci.com/g/JeroenDeDauw/ParserHooks)
 * [ParserHooks on coveralls.io](https://coveralls.io/r/wikimedia/mediawiki-extensions-ParserHooks)
-* [TravisCI build status](https://travis-ci.org/wikimedia/mediawiki-extensions-ParserHooks)
+* [TravisCI build status](https://travis-ci.org/JeroenDeDauw/ParserHooks)
