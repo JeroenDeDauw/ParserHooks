@@ -142,7 +142,10 @@ as a hobby project to support the [SubPageList MediaWiki extension]
 
 ### 1.5 (2016-03-05)
 
-
+* Added license now shown on Special:Version
+* Updated translations
+* Made minor style improvements
+* Ensured the extension works with PHP 7 and MediaWiki up to at least 1.27
 
 ### 1.4 (2014-07-05)
 
