@@ -14,8 +14,7 @@
 		{
 			"name": "Jeroen De Dauw",
 			"email": "jeroendedauw@gmail.com",
-			"homepage": "https://entropywins.wtf",
-			"role": "Developer"
+			"homepage": "https://www.entropywins.wtf"
 		}
 	],
 	"support": {
@@ -24,14 +23,6 @@
 	"require": {
 		"php": ">=5.3.0",
 		"param-processor/param-processor": "~1.2"
-	},
-	"require-dev": {
-		"jakub-onderka/php-parallel-lint": "0.9.2"
-	},
-	"scripts": {
-		"test": [
-			"parallel-lint . --exclude vendor"
-		]
 	},
 	"autoload": {
 		"files": [
