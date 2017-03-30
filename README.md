@@ -1,7 +1,7 @@
 # ParserHooks
 
 [![Build Status](https://secure.travis-ci.org/JeroenDeDauw/ParserHooks.png?branch=master)](http://travis-ci.org/JeroenDeDauw/ParserHooks)
-[![Coverage Status](https://coveralls.io/repos/wikimedia/mediawiki-extensions-ParserHooks/badge.png?branch=master)](https://coveralls.io/r/wikimedia/mediawiki-extensions-ParserHooks?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/JeroenDeDauw/ParserHooks/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/JeroenDeDauw/ParserHooks/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/JeroenDeDauw/ParserHooks/badges/quality-score.png?s=2faf8e83be1e5ecd58a8f9f65cb47a01e966302e)](https://scrutinizer-ci.com/g/JeroenDeDauw/ParserHooks/)
 
 On Packagist:
@@ -17,6 +17,12 @@ This is a PHP library for MediaWiki extensions. It does not in itself add or enh
 * [PHP](http://php.net/) 5.3 or later (including PHP 7)
 * [MediaWiki](https://www.mediawiki.org/) 1.16 or later
 
+The latest versions (1.6+) requires more recent PHP and MediaWiki. If that does not work for you, just
+stick with version 1.5, which has no known defects and does not miss any real features. 
+
+* [PHP](http://php.net/) 5.5 or later (including PHP 7.x)
+* [MediaWiki](https://www.mediawiki.org/) 2.27 or later
+
 ## Installation
 
 You can use [Composer](http://getcomposer.org/) to download and install
@@ -28,7 +34,7 @@ the git repository and take care of loading yourself.
 To add this package as a local, per-project dependency to your project, simply add a
 dependency on `mediawiki/parser-hooks` to your project's `composer.json` file.
 Here is a minimal example of a `composer.json` file that just defines a dependency on
-ParserHooks 1.4:
+ParserHooks 1.5:
 
     {
         "require": {
@@ -139,6 +145,12 @@ as a hobby project to support the [SubPageList MediaWiki extension]
 (https://github.com/JeroenDeDauw/SubPageList/blob/master/README.md).
 
 ## Release notes
+
+### 1.6 (dev)
+
+* Dropped support for PHP 5.3 and PHP 5.4
+* Dropped support for MediaWiki 1.26 and older
+* Ensured the extension works with PHP 7.1 and MediaWiki up to at least 1.29
 
 ### 1.5 (2016-03-05)
 

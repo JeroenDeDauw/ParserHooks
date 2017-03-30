@@ -2,22 +2,17 @@
 
 set -x
 
-composer self-update
-
 originalDirectory=$(pwd)
 
 cd ..
 
-wget https://github.com/wikimedia/mediawiki/archive/$MW.tar.gz
+wget https://github.com/wikimedia/mediawiki-core/archive/$MW.tar.gz
 tar -zxf $MW.tar.gz
 mv mediawiki-$MW phase3
 
 cd phase3
 
-if [ "$MW" != "1.21.0" ]
-then
-	composer require 'phpunit/phpunit=3.7.*' --prefer-source
-fi
+composer install --prefer-source
 
 if [ "$DB" == "postgres" ]
 then
@@ -34,11 +29,6 @@ cp -r $originalDirectory ParserHooks
 
 cd ParserHooks
 composer install --prefer-source
-
-if [ "$MW" == "1.21.0" ]
-then
-	composer require 'phpunit/phpunit=3.7.*' --prefer-source
-fi
 
 cd ../..
 

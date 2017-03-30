@@ -13,7 +13,7 @@ if ( defined( 'ParserHooks_VERSION' ) ) {
 	return 1;
 }
 
-define( 'ParserHooks_VERSION', '1.5.0' );
+define( 'ParserHooks_VERSION', '1.6.0 dev' );
 
 if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
 	include_once( __DIR__ . '/vendor/autoload.php' );

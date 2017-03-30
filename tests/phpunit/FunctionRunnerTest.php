@@ -4,8 +4,10 @@ namespace ParserHooks\Tests;
 
 use ParamProcessor\ProcessedParam;
 use ParamProcessor\ProcessingResult;
+use ParamProcessor\Processor;
 use ParserHooks\FunctionRunner;
 use ParserHooks\HookDefinition;
+use ParserHooks\HookHandler;
 
 /**
  * @covers ParserHooks\FunctionRunner
@@ -35,19 +37,13 @@ class FunctionRunnerTest extends \PHPUnit_Framework_TestCase {
 
 	const HOOK_HANDLER_RESULT = 'hook handler result';
 
-	protected $options;
-
-	protected $parser;
-
 	/**
 	 * @dataProvider optionsProvider
 	 */
 	public function testRun( array $options ) {
-		$this->options = $options;
-
 		$definition = new HookDefinition( 'someHook' );
 
-		$this->parser = $this->getMock( 'Parser' );
+		$parser = $this->getMock( \Parser::class );
 
 		$inputParams = array(
 			'foo=bar',
@@ -60,34 +56,34 @@ class FunctionRunnerTest extends \PHPUnit_Framework_TestCase {
 
 		$paramProcessor = $this->newMockParamProcessor( $inputParams, $processedParams );
 
-		$hookHandler = $this->newMockHookHandler( $processedParams );
+		$hookHandler = $this->newMockHookHandler( $processedParams, $parser );
 
 		$runner = new FunctionRunner(
 			$definition,
 			$hookHandler,
-			$this->options,
+			$options,
 			$paramProcessor
 		);
 
-		$frame = $this->getMock( 'PPFrame' );
+		$frame = $this->getMock( \PPFrame::class );
 
 		$frame->expects( $this->exactly( count( $inputParams ) ) )
 			->method( 'expand' )
 			->will( $this->returnArgument( 0 ) );
 
 		$result = $runner->run(
-			$this->parser,
+			$parser,
 			$inputParams,
 			$frame
 		);
 
-		$this->assertResultIsValid( $result );
+		$this->assertResultIsValid( $result, $options );
 	}
 
-	protected function assertResultIsValid( $result ) {
+	private function assertResultIsValid( $result, array $options ) {
 		$expected = array( self::HOOK_HANDLER_RESULT );
 
-		if ( !$this->options[FunctionRunner::OPT_DO_PARSE] ) {
+		if ( !$options[FunctionRunner::OPT_DO_PARSE] ) {
 			$expected['noparse'] = true;
 			$expected['isHTML'] = true;
 		}
@@ -95,13 +91,13 @@ class FunctionRunnerTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals( $expected, $result );
 	}
 
-	protected function newMockHookHandler( $expectedParameters ) {
-		$hookHandler = $this->getMock( 'ParserHooks\HookHandler' );
+	private function newMockHookHandler( $expectedParameters, $parser ) {
+		$hookHandler = $this->getMock( HookHandler::class );
 
 		$hookHandler->expects( $this->once() )
 			->method( 'handle' )
 			->with(
-				$this->equalTo( $this->parser ),
+				$this->equalTo( $parser ),
 				$this->equalTo( $expectedParameters )
 			)
 			->will( $this->returnValue( self::HOOK_HANDLER_RESULT ) );
@@ -109,8 +105,8 @@ class FunctionRunnerTest extends \PHPUnit_Framework_TestCase {
 		return $hookHandler;
 	}
 
-	protected function newMockParamProcessor( $expandedParams, $processedParams ) {
-		$paramProcessor = $this->getMockBuilder( 'ParamProcessor\Processor' )
+	private function newMockParamProcessor( $expandedParams, $processedParams ) {
+		$paramProcessor = $this->getMockBuilder( Processor::class )
 			->disableOriginalConstructor()->getMock();
 
 		$paramProcessor->expects( $this->once() )
