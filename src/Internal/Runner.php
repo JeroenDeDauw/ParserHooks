@@ -50,7 +50,7 @@ abstract class Runner {
 	 * @param array $options
 	 * @param Processor|null $paramProcessor
 	 */
-	public function __construct( HookDefinition $definition, HookHandler $handler, array $options = array(), Processor $paramProcessor = null ) {
+	public function __construct( HookDefinition $definition, HookHandler $handler, array $options = [], Processor $paramProcessor = null ) {
 		$this->definition = $definition;
 		$this->handler = $handler;
 

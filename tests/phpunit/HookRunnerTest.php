@@ -20,56 +20,56 @@ use ParserHooks\HookRunner;
 class HookRunnerTest extends \PHPUnit_Framework_TestCase {
 
 	public function optionsProvider() {
-		return array(
-			array(
-				array(
+		return [
+			[
+				[
 					HookRunner::OPT_DO_PARSE => true,
-				),
-				array(),
-				array(),
-				array(),
-			),
-			array(
-				array(
+				],
+				[],
+				[],
+				[],
+			],
+			[
+				[
 					HookRunner::OPT_DO_PARSE => false,
-				),
-				array(),
-				array(),
-				array(),
-			),
-			array(
-				array(
+				],
+				[],
+				[],
+				[],
+			],
+			[
+				[
 					HookRunner::OPT_DO_PARSE => true,
-				),
-				array(
+				],
+				[
 					'foo' => 'bar',
 					'baz' => 'bah',
-				),
-				array(),
-				array(
+				],
+				[],
+				[
 					'foo' => 'bar',
 					'baz' => 'bah',
-				),
-			),
-			array(
-				array(
+				],
+			],
+			[
+				[
 					HookRunner::OPT_DO_PARSE => true,
-				),
-				array(
+				],
+				[
 					'foo' => 'bar',
 					'baz' => 'bah',
-				),
-				array(
+				],
+				[
 					'ohi',
 					'there',
-				),
-				array(
+				],
+				[
 					'ohi' => self::INPUT_TEXT,
 					'foo' => 'bar',
 					'baz' => 'bah',
-				),
-			),
-		);
+				],
+			],
+		];
 	}
 
 	const HOOK_HANDLER_RESULT = 'hook handler result';
@@ -105,13 +105,13 @@ class HookRunnerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	protected function newHookRunner( array $defaultParams, array $expectedParams ) {
-		$processedParams = new ProcessingResult( array(
+		$processedParams = new ProcessingResult( [
 			'foo' => new ProcessedParam( 'foo', 'bar', false )
-		) );
+		] );
 
 		$definition = new HookDefinition(
 			'someHook',
-			array(),
+			[],
 			$defaultParams
 		);
 

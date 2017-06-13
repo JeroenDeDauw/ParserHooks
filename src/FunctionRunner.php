@@ -29,7 +29,7 @@ class FunctionRunner extends Runner {
 	 * @param array $options
 	 * @param Processor|null $paramProcessor
 	 */
-	public function __construct( HookDefinition $definition, HookHandler $handler, array $options = array(), Processor $paramProcessor = null ) {
+	public function __construct( HookDefinition $definition, HookHandler $handler, array $options = [], Processor $paramProcessor = null ) {
 		parent::__construct( $definition, $handler, $options, $paramProcessor );
 	}
 
@@ -52,7 +52,7 @@ class FunctionRunner extends Runner {
 	}
 
 	protected function getExpandedParams( array $rawArguments, PPFrame $frame ) {
-		$rawArgList = array();
+		$rawArgList = [];
 
 		foreach( $rawArguments as $arg ) {
 			$rawArgList[] = $frame->expand( $arg );
@@ -72,7 +72,7 @@ class FunctionRunner extends Runner {
 	}
 
 	protected function getResultStructure( $resultText ) {
-		$result = array( $resultText );
+		$result = [ $resultText ];
 
 		if ( !$this->getOption( self::OPT_DO_PARSE ) ) {
 			$result['noparse'] = true;
@@ -90,9 +90,9 @@ class FunctionRunner extends Runner {
 	 * @return array
 	 */
 	protected function getDefaultOptions() {
-		return array(
+		return [
 			self::OPT_DO_PARSE => true,
-		);
+		];
 	}
 
 }

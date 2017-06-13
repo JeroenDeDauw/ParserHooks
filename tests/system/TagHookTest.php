@@ -79,27 +79,27 @@ class TagHookTest extends \PHPUnit_Framework_TestCase {
 	protected function getHookDefinition() {
 		return new HookDefinition(
 			self::HOOK_NAME,
-			array(
-				array(
+			[
+				[
 					'name' => 'name',
 					'message' => 'abc',
-				),
-				array(
+				],
+				[
 					'name' => 'awesomeness',
 					'message' => 'abc',
 					'type' => 'integer',
 					'default' => 9001,
-				),
-				array(
+				],
+				[
 					'name' => '1337',
 					'message' => 'abc',
 					'type' => 'boolean',
 					'default' => false,
-				),
-			),
-			array(
+				],
+			],
+			[
 				'name'
-			)
+			]
 		);
 	}
 
@@ -116,11 +116,11 @@ class TagHookTest extends \PHPUnit_Framework_TestCase {
 					}
 
 					$params = $var->getParameters();
-					$expectedParams = array(
+					$expectedParams = [
 						'1337' => new ProcessedParam( '1337', true, false, '1337', 'yes' ),
 						'awesomeness' => new ProcessedParam( 'awesomeness', 9001, true, null, null ),
 						'name' => new ProcessedParam( 'name', 'Jeroen', false, 'name', 'Jeroen' ),
-					);
+					];
 
 					asort( $params );
 					asort( $expectedParams );

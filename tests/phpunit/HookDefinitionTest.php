@@ -15,14 +15,14 @@ use ParserHooks\HookDefinition;
 class HookDefinitionTest extends \PHPUnit_Framework_TestCase {
 
 	public function namesProvider() {
-		return $this->arrayWrap( array(
+		return $this->arrayWrap( [
 			'foo',
 			'foo bar',
-			array( 'foo' ),
-			array( 'foobar' ),
-			array( 'foo', 'bAr' ),
-			array( 'foo', 'bar', 'baz BAH', 'BAR' ),
-		) );
+			[ 'foo' ],
+			[ 'foobar' ],
+			[ 'foo', 'bAr' ],
+			[ 'foo', 'bar', 'baz BAH', 'BAR' ],
+		] );
 	}
 
 	/**
@@ -40,9 +40,9 @@ class HookDefinitionTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function parametersProvider() {
-		return $this->arrayWrap( array(
-			array()
-		) );
+		return $this->arrayWrap( [
+			[]
+		] );
 	}
 
 	/**
@@ -57,14 +57,14 @@ class HookDefinitionTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function defaultParametersProvider() {
-		return $this->arrayWrap( array(
+		return $this->arrayWrap( [
 			'foo',
 			'foo bar',
-			array( 'foo' ),
-			array( 'foobar' ),
-			array( 'foo', 'bAr' ),
-			array( 'foo', 'bar', 'baz BAH', 'BAR' ),
-		) );
+			[ 'foo' ],
+			[ 'foobar' ],
+			[ 'foo', 'bAr' ],
+			[ 'foo', 'bar', 'baz BAH', 'BAR' ],
+		] );
 	}
 
 	/**
@@ -73,7 +73,7 @@ class HookDefinitionTest extends \PHPUnit_Framework_TestCase {
 	 * @param string|string[] $defaultParameters
 	 */
 	public function testGetDefaultParameters( $defaultParameters ) {
-		$definition = new HookDefinition( 'foo', array(), $defaultParameters );
+		$definition = new HookDefinition( 'foo', [], $defaultParameters );
 		$obtainedDefaultParams = $definition->getDefaultParameters();
 
 		$this->assertInternalType( 'array', $obtainedDefaultParams );
@@ -84,7 +84,7 @@ class HookDefinitionTest extends \PHPUnit_Framework_TestCase {
 	protected function arrayWrap( array $elements ) {
 		return array_map(
 			function( $element ) {
-				return array( $element );
+				return [ $element ];
 			},
 			$elements
 		);
@@ -92,7 +92,7 @@ class HookDefinitionTest extends \PHPUnit_Framework_TestCase {
 
 	public function testCannotConstructWithEmptyNameList() {
 		$this->setExpectedException( 'InvalidArgumentException' );
-		new HookDefinition( array() );
+		new HookDefinition( [] );
 	}
 
 	public function testCannotConstructWithNonStringName() {
@@ -102,20 +102,20 @@ class HookDefinitionTest extends \PHPUnit_Framework_TestCase {
 
 	public function testCannotConstructWithNonStringNames() {
 		$this->setExpectedException( 'InvalidArgumentException' );
-		new HookDefinition( array( 'foo', 42, 'bar' ) );
+		new HookDefinition( [ 'foo', 42, 'bar' ] );
 	}
 
 	public function testCannotConstructWithNonStringDefaultArg() {
 		$this->setExpectedException( 'InvalidArgumentException' );
-		new HookDefinition( 'foo', array(), 42 );
+		new HookDefinition( 'foo', [], 42 );
 	}
 
 	public function testCannotConstructWithNonStringDefaultArgs() {
 		$this->setExpectedException( 'InvalidArgumentException' );
 		new HookDefinition(
 			'foo',
-			array(),
-			array( 'foo', 42, 'bar' )
+			[],
+			[ 'foo', 42, 'bar' ]
 		);
 	}
 
