@@ -21,7 +21,7 @@ The latest versions (1.6+) requires more recent PHP and MediaWiki. If that does 
 stick with version 1.5, which has no known defects and does not miss any real features. 
 
 * [PHP](http://php.net/) 5.5 or later (including PHP 7.x)
-* [MediaWiki](https://www.mediawiki.org/) 2.27 or later
+* [MediaWiki](https://www.mediawiki.org/) 1.27 or later
 
 ## Installation
 
