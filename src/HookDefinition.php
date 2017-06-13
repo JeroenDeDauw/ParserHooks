@@ -37,7 +37,7 @@ class HookDefinition {
 	 *
 	 * @throws InvalidArgumentException
 	 */
-	public function __construct( $names, array $parameters = array(), $defaultParameters = array() ) {
+	public function __construct( $names, array $parameters = [], $defaultParameters = [] ) {
 		$this->setNames( $names );
 		$this->parameters = $parameters;
 		$this->setDefaultParams( $defaultParameters );
@@ -46,7 +46,7 @@ class HookDefinition {
 	protected function setNames( $names ) {
 		$this->names = $this->getStringList( $names );
 
-		if ( $this->names === array() ) {
+		if ( $this->names === [] ) {
 			throw new InvalidArgumentException( 'The list of names cannot be empty' );
 		}
 	}

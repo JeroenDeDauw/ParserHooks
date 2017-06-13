@@ -16,11 +16,11 @@ use ParserHooks\HookRegistrant;
 class HookRegistrantTest extends \PHPUnit_Framework_TestCase {
 
 	public function namesProvider() {
-		return array(
-			array( array( 'foo' ) ),
-			array( array( 'foo', 'bar' ) ),
-			array( array( 'foo', 'bar', 'baz', 'bah' ) ),
-		);
+		return [
+			[ [ 'foo' ] ],
+			[ [ 'foo', 'bar' ] ],
+			[ [ 'foo', 'bar', 'baz', 'bah' ] ],
+		];
 	}
 
 	/**

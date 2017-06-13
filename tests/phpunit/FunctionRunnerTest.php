@@ -21,18 +21,18 @@ use ParserHooks\HookHandler;
 class FunctionRunnerTest extends \PHPUnit_Framework_TestCase {
 
 	public function optionsProvider() {
-		return array(
-			array(
-				array(
+		return [
+			[
+				[
 					FunctionRunner::OPT_DO_PARSE => true,
-				),
-			),
-			array(
-				array(
+				],
+			],
+			[
+				[
 					FunctionRunner::OPT_DO_PARSE => false,
-				),
-			),
-		);
+				],
+			],
+		];
 	}
 
 	const HOOK_HANDLER_RESULT = 'hook handler result';
@@ -45,14 +45,14 @@ class FunctionRunnerTest extends \PHPUnit_Framework_TestCase {
 
 		$parser = $this->getMock( \Parser::class );
 
-		$inputParams = array(
+		$inputParams = [
 			'foo=bar',
 			'baz=42',
-		);
+		];
 
-		$processedParams = new ProcessingResult( array(
+		$processedParams = new ProcessingResult( [
 			'foo' => new ProcessedParam( 'foo', 'bar', false )
-		) );
+		] );
 
 		$paramProcessor = $this->newMockParamProcessor( $inputParams, $processedParams );
 
@@ -81,7 +81,7 @@ class FunctionRunnerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	private function assertResultIsValid( $result, array $options ) {
-		$expected = array( self::HOOK_HANDLER_RESULT );
+		$expected = [ self::HOOK_HANDLER_RESULT ];
 
 		if ( !$options[FunctionRunner::OPT_DO_PARSE] ) {
 			$expected['noparse'] = true;

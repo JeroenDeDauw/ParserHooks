@@ -22,17 +22,17 @@ if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
 call_user_func( function() {
 	global $wgExtensionCredits, $wgExtensionMessagesFiles, $wgHooks, $wgMessagesDirs;
 
-	$wgExtensionCredits['other'][] = array(
+	$wgExtensionCredits['other'][] = [
 		'path' => __FILE__,
 		'name' => 'ParserHooks',
 		'version' => ParserHooks_VERSION,
-		'author' => array(
+		'author' => [
 			'[https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw]',
-		),
+		],
 		'url' => 'https://github.com/JeroenDeDauw/ParserHooks',
 		'descriptionmsg' => 'parserhooks-desc',
 		'license-name' => 'GPL-2.0+'
-	);
+	];
 
 	$wgMessagesDirs['ParserHooksExtension'] = __DIR__ . '/i18n';
 	$wgExtensionMessagesFiles['ParserHooksExtension'] = __DIR__ . '/ParserHooks.i18n.php';
