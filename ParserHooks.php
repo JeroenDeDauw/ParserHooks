@@ -31,7 +31,7 @@ call_user_func( function() {
 		],
 		'url' => 'https://github.com/JeroenDeDauw/ParserHooks',
 		'descriptionmsg' => 'parserhooks-desc',
-		'license-name' => 'GPL-2.0+'
+		'license-name' => 'GPL-2.0-or-later'
 	];
 
 	$wgMessagesDirs['ParserHooksExtension'] = __DIR__ . '/i18n';
