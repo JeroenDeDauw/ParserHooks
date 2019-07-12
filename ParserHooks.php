@@ -20,7 +20,7 @@ if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
 }
 
 call_user_func( function() {
-	global $wgExtensionCredits, $wgExtensionMessagesFiles, $wgHooks, $wgMessagesDirs;
+	global $wgExtensionCredits, $wgExtensionMessagesFiles, $wgMessagesDirs;
 
 	$wgExtensionCredits['other'][] = [
 		'path' => __FILE__,
@@ -36,31 +36,5 @@ call_user_func( function() {
 
 	$wgMessagesDirs['ParserHooksExtension'] = __DIR__ . '/i18n';
 	$wgExtensionMessagesFiles['ParserHooksExtension'] = __DIR__ . '/ParserHooks.i18n.php';
-
-	/**
-	 * Hook to add PHPUnit test cases.
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UnitTestsList
-	 *
-	 * @since 1.0
-	 *
-	 * @param array $files
-	 *
-	 * @return boolean
-	 */
-	$wgHooks['UnitTestsList'][]	= function( array &$files ) {
-		$directoryIterator = new RecursiveDirectoryIterator( __DIR__ . '/tests/' );
-
-		/**
-		 * @var SplFileInfo $fileInfo
-		 */
-		foreach ( new RecursiveIteratorIterator( $directoryIterator ) as $fileInfo ) {
-			if ( substr( $fileInfo->getFilename(), -8 ) === 'Test.php' ) {
-				$files[] = $fileInfo->getPathname();
-			}
-		}
-
-		return true;
-	};
-
 } );
 // @codeCoverageIgnoreEnd

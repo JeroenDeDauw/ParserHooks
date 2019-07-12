@@ -10,6 +10,7 @@ use ParserHooks\HookDefinition;
 use ParserHooks\HookRegistrant;
 use ParserHooks\HookRunner;
 use ParserOptions;
+use PHPUnit\Framework\TestCase;
 use Title;
 use User;
 
@@ -18,7 +19,7 @@ use User;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class TagHookTest extends \PHPUnit_Framework_TestCase {
+class TagHookTest extends TestCase {
 
 	const HOOK_NAME = 'systemtest_tagextension';
 
@@ -47,7 +48,7 @@ class TagHookTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$this->assertInternalType( 'string', $result );
-		$this->assertEquals(
+		$this->assertContains(
 			"||-Jeroen-|||",
 			$result
 		);
@@ -104,7 +105,7 @@ class TagHookTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	protected function getHookHandler() {
-		$hookHandler = $this->getMock( 'ParserHooks\HookHandler' );
+		$hookHandler = $this->createMock( 'ParserHooks\HookHandler' );
 
 		$hookHandler->expects( $this->once() )
 			->method( 'handle' )
