@@ -7,6 +7,7 @@ use ParamProcessor\ProcessingResult;
 use ParserHooks\FunctionRunner;
 use ParserHooks\HookDefinition;
 use ParserHooks\HookRunner;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers ParserHooks\HookRunner
@@ -17,7 +18,7 @@ use ParserHooks\HookRunner;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class HookRunnerTest extends \PHPUnit_Framework_TestCase {
+class HookRunnerTest extends TestCase {
 
 	public function optionsProvider() {
 		return [
@@ -87,7 +88,7 @@ class HookRunnerTest extends \PHPUnit_Framework_TestCase {
 	public function testRun( array $options, array $params, array $defaultParams, array $expectedParams ) {
 		$this->options = $options;
 
-		$this->frame = $this->getMock( 'PPFrame' );
+		$this->frame = $this->createMock( 'PPFrame' );
 		$this->parser = $this->newMockParser();
 
 		$runner = $this->newHookRunner( $defaultParams, $expectedParams );
@@ -128,7 +129,7 @@ class HookRunnerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	protected function newMockParser() {
-		$parser = $this->getMock( 'Parser' );
+		$parser = $this->createMock( 'Parser' );
 
 		if ( $this->options[HookRunner::OPT_DO_PARSE] ) {
 			$parser->expects( $this->once() )
@@ -148,7 +149,7 @@ class HookRunnerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	protected function newMockHookHandler( $expectedProcessor ) {
-		$hookHandler = $this->getMock( 'ParserHooks\HookHandler' );
+		$hookHandler = $this->createMock( 'ParserHooks\HookHandler' );
 
 		$hookHandler->expects( $this->once() )
 			->method( 'handle' )
@@ -162,8 +163,7 @@ class HookRunnerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	protected function newMockParamProcessor( $expandedParams, $processedParams ) {
-		$paramProcessor = $this->getMockBuilder( 'ParamProcessor\Processor' )
-			->disableOriginalConstructor()->getMock();
+		$paramProcessor = $this->createMock( 'ParamProcessor\Processor' );
 
 		$paramProcessor->expects( $this->once() )
 			->method( 'setParameters' )

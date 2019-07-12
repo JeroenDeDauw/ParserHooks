@@ -12,16 +12,38 @@ OOP interface for creating MediaWiki parser hooks in a declarative fashion.
 
 This is a PHP library for MediaWiki extensions. It does not in itself add or enhance functionality of your wiki.
 
-## Requirements
+## Platform compatibility and release status
 
-* [PHP](http://php.net/) 5.3 or later (including PHP 7)
-* [MediaWiki](https://www.mediawiki.org/) 1.16 or later
+The PHP and MediaWiki version ranges listed are those in which ParserHooks is known to work. It might also
+work with more recent versions of PHP and MediaWiki, though this is not guaranteed. Increases of
+minimum requirements are indicated in bold. For a detailed list of changes, see the [release notes](RELEASE-NOTES.md).
 
-The latest versions (1.6+) requires more recent PHP and MediaWiki. If that does not work for you, just
-stick with version 1.5, which has no known defects and does not miss any real features. 
-
-* [PHP](http://php.net/) 5.5 or later (including PHP 7.x)
-* [MediaWiki](https://www.mediawiki.org/) 1.27 or later
+<table>
+	<tr>
+		<th>ParserHooks</th>
+		<th>PHP</th>
+		<th>MediaWiki</th>
+		<th>Release status</th>
+	</tr>
+	<tr>
+		<th>1.6.x</th>
+		<td><strong>7.2</strong> - 7.4</td>
+		<td><strong>1.31</strong> - 1.33</td>
+		<td><strong>Stable release</strong></td>
+	</tr>
+	<tr>
+		<th>1.5.x</th>
+		<td>5.3 - 7.1</td>
+		<td>1.16 - 1.27</td>
+		<td>Bugfixes only</td>
+	</tr>
+	<tr>
+		<th>1.0.x - 1.4.x</th>
+		<td>5.3 - 5.6</td>
+		<td>1.16 - 1.23</td>
+		<td>Obsolete release, no support</td>
+	</tr>
+</table>
 
 ## Installation
 
@@ -72,8 +94,8 @@ class are used in handling of actual parser hooks, though can also be used in ot
 For instance, you can feed these definitions to a tool that generates parser hook documentation
 based on them.
 
-The parameter definitions are ParamProcessor\ParamDefinition objects. See the [ParamProcessor]
-(https://github.com/JeroenDeDauw/ParamProcessor) documentation on how to specify these.
+The parameter definitions are ParamProcessor\ParamDefinition objects. See the
+[ParamProcessor](https://github.com/JeroenDeDauw/ParamProcessor) documentation on how to specify these.
 
 ### HookHandler
 
@@ -136,21 +158,22 @@ via TravisCI, as a TravisCI configuration file is also provided in the root dire
 The tests can be run for the `tests/phpunit` directory of your MediaWiki installation
 with this command:
 
-    php phpunit.php -c ../../extensions/ParserHooks/
+    php phpunit.php --wiki wikiName -c ../../extensions/ParserHooks/
 
 ## Authors
 
 ParserHooks has been written by [Jeroen De Dauw](https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw)
-as a hobby project to support the [SubPageList MediaWiki extension]
-(https://github.com/JeroenDeDauw/SubPageList/blob/master/README.md).
+as a hobby project to support the
+[SubPageList MediaWiki extension](https://github.com/JeroenDeDauw/SubPageList/blob/master/README.md).
 
 ## Release notes
 
-### 1.6 (dev)
+### 1.6 (2019-07-xx)
 
-* Dropped support for PHP 5.3 and PHP 5.4
-* Dropped support for MediaWiki 1.26 and older
-* Ensured the extension works with PHP 7.1 and MediaWiki up to at least 1.29
+* Added support for PHP 7.2, 7.3 and 7.4
+* Added support for MediaWiki 1.31, 1.32 and 1.33
+* Dropped support for PHP 7.1 and older
+* Dropped support for MediaWiki 1.30 and older
 
 ### 1.5 (2016-03-05)
 

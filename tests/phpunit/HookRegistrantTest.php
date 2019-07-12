@@ -4,6 +4,7 @@ namespace ParserHooks\Tests;
 
 use ParserHooks\HookDefinition;
 use ParserHooks\HookRegistrant;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers ParserHooks\HookRegistrant
@@ -13,7 +14,7 @@ use ParserHooks\HookRegistrant;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class HookRegistrantTest extends \PHPUnit_Framework_TestCase {
+class HookRegistrantTest extends TestCase {
 
 	public function namesProvider() {
 		return [
@@ -52,7 +53,7 @@ class HookRegistrantTest extends \PHPUnit_Framework_TestCase {
 
 		$registrant->registerFunctionHandler(
 			new HookDefinition( $names ),
-			$this->getMock( 'ParserHooks\HookHandler' )
+			$this->createMock( 'ParserHooks\HookHandler' )
 		);
 	}
 
@@ -65,7 +66,7 @@ class HookRegistrantTest extends \PHPUnit_Framework_TestCase {
 
 		$registrant->registerHookHandler(
 			new HookDefinition( $names ),
-			$this->getMock( 'ParserHooks\HookHandler' )
+			$this->createMock( 'ParserHooks\HookHandler' )
 		);
 	}
 
@@ -78,7 +79,7 @@ class HookRegistrantTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	protected function newMockParser( array $names, $expectedMethod ) {
-		$parser = $this->getMock( 'Parser' );
+		$parser = $this->createMock( 'Parser' );
 
 		foreach ( $names as $index => $name ) {
 			$parser->expects( $this->at( $index ) )
@@ -95,8 +96,7 @@ class HookRegistrantTest extends \PHPUnit_Framework_TestCase {
 	protected function newMockRunner( array $names, $runnerClass ) {
 		$definition = new HookDefinition( $names );
 
-		$runner = $this->getMockBuilder( $runnerClass )
-			->disableOriginalConstructor()->getMock();
+		$runner = $this->createMock( $runnerClass );
 
 		$runner->expects( $this->once() )
 			->method( 'getDefinition' )

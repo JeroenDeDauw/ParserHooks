@@ -3,6 +3,7 @@
 namespace ParserHooks\Tests;
 
 use ParserHooks\HookDefinition;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers ParserHooks\HookDefinition
@@ -12,7 +13,7 @@ use ParserHooks\HookDefinition;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class HookDefinitionTest extends \PHPUnit_Framework_TestCase {
+class HookDefinitionTest extends TestCase {
 
 	public function namesProvider() {
 		return $this->arrayWrap( [
@@ -91,27 +92,27 @@ class HookDefinitionTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCannotConstructWithEmptyNameList() {
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 		new HookDefinition( [] );
 	}
 
 	public function testCannotConstructWithNonStringName() {
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 		new HookDefinition( 42 );
 	}
 
 	public function testCannotConstructWithNonStringNames() {
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 		new HookDefinition( [ 'foo', 42, 'bar' ] );
 	}
 
 	public function testCannotConstructWithNonStringDefaultArg() {
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 		new HookDefinition( 'foo', [], 42 );
 	}
 
 	public function testCannotConstructWithNonStringDefaultArgs() {
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 		new HookDefinition(
 			'foo',
 			[],
