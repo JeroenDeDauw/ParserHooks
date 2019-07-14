@@ -168,7 +168,7 @@ as a hobby project to support the
 
 ## Release notes
 
-### 1.6 (2019-07-xx)
+### 1.6 (2019-07-14)
 
 * Added support for PHP 7.2, 7.3 and 7.4
 * Added support for MediaWiki 1.31, 1.32 and 1.33
