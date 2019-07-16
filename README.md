@@ -34,7 +34,7 @@ minimum requirements are indicated in bold. For a detailed list of changes, see 
 	<tr>
 		<th>1.5.x</th>
 		<td>5.3 - 7.1</td>
-		<td>1.16 - 1.33</td>
+		<td>1.16 - 1.30</td>
 		<td>Bugfixes only</td>
 	</tr>
 	<tr>
