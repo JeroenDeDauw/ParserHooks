@@ -34,7 +34,7 @@ minimum requirements are indicated in bold. For a detailed list of changes, see 
 	<tr>
 		<th>1.5.x</th>
 		<td>5.3 - 7.1</td>
-		<td>1.16 - 1.27</td>
+		<td>1.16 - 1.30</td>
 		<td>Bugfixes only</td>
 	</tr>
 	<tr>
@@ -47,7 +47,7 @@ minimum requirements are indicated in bold. For a detailed list of changes, see 
 
 ## Installation
 
-You can use [Composer](http://getcomposer.org/) to download and install
+You can use [Composer](https://getcomposer.org/) to download and install
 this package as well as its dependencies. Alternatively you can simply clone
 the git repository and take care of loading yourself.
 
@@ -56,11 +56,11 @@ the git repository and take care of loading yourself.
 To add this package as a local, per-project dependency to your project, simply add a
 dependency on `mediawiki/parser-hooks` to your project's `composer.json` file.
 Here is a minimal example of a `composer.json` file that just defines a dependency on
-ParserHooks 1.5:
+ParserHooks 1.6:
 
     {
         "require": {
-            "mediawiki/parser-hooks": "~1.5"
+            "mediawiki/parser-hooks": "~1.6"
         }
     }
 
@@ -110,8 +110,8 @@ takes care of invoking the ParamProcessor library based on a HookDefinition. The
 of registering the parser hooks defined by your HookDefinition objects to a MediaWiki Parser object.
 
 ```php
-$awesomeHookDefinition = new HookDefinition( 'awesome', array( /* ... */ ) );
-$anotherHookDefinition = new HookDefinition( 'another', array( /* ... */ ) );
+$awesomeHookDefinition = new HookDefinition( 'awesome', [ /* ... */ ] );
+$anotherHookDefinition = new HookDefinition( 'another', [ /* ... */ ] );
 
 $awesomeHookHandler = new AwesomeHookHandler( /* ... */ );
 $anotherHookHandler = new AnotherHookHandler( /* ... */ );
@@ -174,6 +174,7 @@ as a hobby project to support the
 * Added support for MediaWiki 1.31, 1.32 and 1.33
 * Dropped support for PHP 7.1 and older
 * Dropped support for MediaWiki 1.30 and older
+* Updated translations
 
 ### 1.5 (2016-03-05)
 
@@ -186,10 +187,11 @@ as a hobby project to support the
 
 * Changed the PHPUnit bootstrap so that the tests can be run via the MediaWiki test runner
 * Updated the CI configuration to test the code against multiple MediaWiki versions
+* Updated translations
 
 ### 1.3 (2014-06-25)
 
-* Updated i18n message files
+* Updated translations
 * Changed class loading to PSR-4
 * Updated the used Validator version to 2.x >= 2.0.4
 
