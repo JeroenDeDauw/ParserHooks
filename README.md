@@ -168,6 +168,10 @@ as a hobby project to support the
 
 ## Release notes
 
+### 1.6.1 (2020-01-14)
+
+* Updated translations
+
 ### 1.6 (2019-07-14)
 
 * Added support for PHP 7.2, 7.3 and 7.4
