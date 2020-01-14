@@ -32,6 +32,21 @@ composer install --prefer-source
 
 cd ../..
 
+cat <<EOT >> composer.local.json
+{
+	"extra": {
+		"merge-plugin": {
+			"merge-dev": true,
+			"include": [
+				"extensions/*/composer.json"
+			]
+		}
+	}
+}
+EOT
+
+composer install --prefer-source
+
 echo 'require_once( __DIR__ . "/extensions/ParserHooks/ParserHooks.php" );' >> LocalSettings.php
 
 echo 'error_reporting(E_ALL| E_STRICT);' >> LocalSettings.php
