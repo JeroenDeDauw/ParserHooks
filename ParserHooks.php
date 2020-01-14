@@ -27,7 +27,8 @@ call_user_func( function() {
 		'name' => 'ParserHooks',
 		'version' => ParserHooks_VERSION,
 		'author' => [
-			'[https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw]',
+			'[https://www.entropywins.wtf/mediawiki Jeroen De Dauw]',
+			'[https://professional.wiki/ Professional.Wiki]',
 		],
 		'url' => 'https://github.com/JeroenDeDauw/ParserHooks',
 		'descriptionmsg' => 'parserhooks-desc',
