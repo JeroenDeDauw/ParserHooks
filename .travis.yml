@@ -1,12 +1,17 @@
 language: php
 
+services:
+  - mysql
+
+sudo: false
+
 matrix:
   include:
     - env: DBTYPE=mysql; MW=master
+      php: 7.4
+    - env: DBTYPE=sqlite; MW=1.33.2
       php: 7.3
-    - env: DBTYPE=sqlite; MW=1.33.0
-      php: 7.3
-    - env: DBTYPE=mysql; MW=1.31.3
+    - env: DBTYPE=mysql; MW=1.31.4
       php: 7.2
 
 sudo: false
