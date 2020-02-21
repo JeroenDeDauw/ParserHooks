@@ -28,7 +28,7 @@ class TagHookTest extends TestCase {
 	 */
 	protected $parser;
 
-	public function setUp() {
+	public function setUp(): void {
 		$this->parser = $this->getSomeParser();
 	}
 
