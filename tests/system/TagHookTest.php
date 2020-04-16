@@ -33,9 +33,15 @@ class TagHookTest extends TestCase {
 	}
 
 	protected function getSomeParser() {
+		if ( class_exists( \MediaWiki\MediaWikiServices::class ) ) {
+			$services = \MediaWiki\MediaWikiServices::getInstance();
+			if ( is_callable( $services, 'getParserFactory' ) ) {
+				return $services->getParserFactory()->create();
+			}
+		}
+		// Fallback for MW < 1.32
 		global $wgParserConf;
-		$parser = new Parser( $wgParserConf );
-		return $parser;
+		return new Parser( $wgParserConf );
 	}
 
 	public function testParserFunctionReceivesArguments() {
