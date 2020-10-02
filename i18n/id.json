@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Daud I.F. Argana"
+		]
+	},
+	"parserhooks-desc": "Antarmuka berorientasi objek untuk membuat ''hook'' parser MediaWiki dalam cara yang deklaratif"
+}
