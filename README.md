@@ -27,8 +27,8 @@ minimum requirements are indicated in bold. For a detailed list of changes, see 
 	</tr>
 	<tr>
 		<th>1.6.x</th>
-		<td><strong>7.2</strong> - 7.4</td>
-		<td><strong>1.31</strong> - 1.33</td>
+		<td><strong>7.2</strong> - 8.0</td>
+		<td><strong>1.31</strong> - 1.36</td>
 		<td><strong>Stable release</strong></td>
 	</tr>
 	<tr>
