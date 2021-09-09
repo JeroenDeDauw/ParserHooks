@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ivi104"
+		]
+	},
+	"parserhooks-desc": "Objektno orijentirano deklarativno sučelje za izradu MediaWiki parserskih okidača"
+}
