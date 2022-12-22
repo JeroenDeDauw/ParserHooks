@@ -1,0 +1,6 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"parserhooks-desc": "OOP interfejs za pravljenje Medijaviki parser huksa na deklarativni način"
+}
