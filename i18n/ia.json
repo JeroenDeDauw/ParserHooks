@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"parserhooks-desc": "Interfacie OOP pro crear hamos al analysator syntactic de MediaWiki de un maniera declarative"
+}
