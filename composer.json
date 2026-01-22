@@ -24,17 +24,14 @@
 		"php": ">=7.2",
 		"param-processor/param-processor": "^1.3.2"
 	},
-	"autoload": {
-		"files": [
-			"ParserHooks.php"
-		],
-		"psr-4": {
-			"ParserHooks\\": "src/"
-		}
-	},
 	"extra": {
 		"branch-alias": {
 			"dev-master": "1.6.x-dev"
 		}
+	},
+	"autoload": {
+		"files": [
+			"ParserHooks.php"
+		]
 	}
 }
