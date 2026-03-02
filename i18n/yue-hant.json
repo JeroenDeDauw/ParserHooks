@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"JeffreyKim"
+		]
+	},
+	"parserhooks-desc": "以宣告式方式嚟建立MediaWiki解析器鉤子嘅OOP介面"
+}
