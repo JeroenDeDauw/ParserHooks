@@ -29,7 +29,7 @@ class FunctionRunner extends Runner {
 	 * @param array $options
 	 * @param Processor|null $paramProcessor
 	 */
-	public function __construct( HookDefinition $definition, HookHandler $handler, array $options = [], Processor $paramProcessor = null ) {
+	public function __construct( HookDefinition $definition, HookHandler $handler, array $options = [], ?Processor $paramProcessor = null ) {
 		parent::__construct( $definition, $handler, $options, $paramProcessor );
 	}
 
