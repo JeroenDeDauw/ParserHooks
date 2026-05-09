@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @group ParserHooks
  *
- * @licence GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class HookRegistrantTest extends TestCase {
@@ -81,14 +81,14 @@ class HookRegistrantTest extends TestCase {
 	protected function newMockParser( array $names, $expectedMethod ) {
 		$parser = $this->createMock( 'Parser' );
 
-		foreach ( $names as $index => $name ) {
-			$parser->expects( $this->at( $index ) )
-				->method( $expectedMethod )
-				->with(
-					$this->equalTo( $name ),
-					$this->isType( 'callable' )
-				);
-		}
+		$callIndex = 0;
+		$parser->expects( $this->exactly( count( $names ) ) )
+			->method( $expectedMethod )
+			->willReturnCallback( function ( $actualName, $actualCallable ) use ( &$callIndex, $names ) {
+				$this->assertSame( $names[$callIndex], $actualName );
+				$this->assertIsCallable( $actualCallable );
+				$callIndex++;
+			} );
 
 		return $parser;
 	}
@@ -100,7 +100,7 @@ class HookRegistrantTest extends TestCase {
 
 		$runner->expects( $this->once() )
 			->method( 'getDefinition' )
-			->will( $this->returnValue( $definition ) );
+			->willReturn( $definition );
 
 		return $runner;
 	}

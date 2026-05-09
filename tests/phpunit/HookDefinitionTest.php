@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @group ParserHooks
  *
- * @licence GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class HookDefinitionTest extends TestCase {
@@ -35,7 +35,7 @@ class HookDefinitionTest extends TestCase {
 		$definition = new HookDefinition( $names );
 		$obtainedNames = $definition->getNames();
 
-		$this->assertInternalType( 'array', $obtainedNames );
+		$this->assertIsArray( $obtainedNames );
 		$this->assertContainsOnly( 'string', $obtainedNames );
 		$this->assertEquals( (array)$names, $obtainedNames );
 	}
@@ -77,7 +77,7 @@ class HookDefinitionTest extends TestCase {
 		$definition = new HookDefinition( 'foo', [], $defaultParameters );
 		$obtainedDefaultParams = $definition->getDefaultParameters();
 
-		$this->assertInternalType( 'array', $obtainedDefaultParams );
+		$this->assertIsArray( $obtainedDefaultParams );
 		$this->assertContainsOnly( 'string', $obtainedDefaultParams );
 		$this->assertEquals( (array)$defaultParameters, $obtainedDefaultParams );
 	}

@@ -2,26 +2,27 @@
 
 namespace ParserHooks\Tests;
 
+use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use ParamProcessor\ProcessedParam;
 use ParamProcessor\ProcessingResult;
 use Parser;
-use ParserHooks\FunctionRunner;
 use ParserHooks\HookDefinition;
 use ParserHooks\HookRegistrant;
 use ParserHooks\HookRunner;
 use ParserOptions;
 use PHPUnit\Framework\TestCase;
-use Title;
-use User;
 
 /**
  * @group ParserHooks
- * @licence GNU GPL v2+
+ * @coversNothing
+ * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class TagHookTest extends TestCase {
 
-	const HOOK_NAME = 'systemtest_tagextension';
+	private const HOOK_NAME = 'systemtest_tagextension';
 
 	/**
 	 * @var Parser
@@ -29,19 +30,7 @@ class TagHookTest extends TestCase {
 	protected $parser;
 
 	public function setUp(): void {
-		$this->parser = $this->getSomeParser();
-	}
-
-	protected function getSomeParser() {
-		if ( class_exists( \MediaWiki\MediaWikiServices::class ) ) {
-			$services = \MediaWiki\MediaWikiServices::getInstance();
-			if ( is_callable( $services, 'getParserFactory' ) ) {
-				return $services->getParserFactory()->create();
-			}
-		}
-		// Fallback for MW < 1.32
-		global $wgParserConf;
-		return new Parser( $wgParserConf );
+		$this->parser = MediaWikiServices::getInstance()->getParserFactory()->create();
 	}
 
 	public function testParserFunctionReceivesArguments() {
@@ -53,8 +42,8 @@ class TagHookTest extends TestCase {
 			"||<$name 1337=yes>Jeroen</$name>|||"
 		);
 
-		$this->assertInternalType( 'string', $result );
-		$this->assertContains(
+		$this->assertIsString( $result );
+		$this->assertStringContainsString(
 			"||-Jeroen-|||",
 			$result
 		);
@@ -64,9 +53,12 @@ class TagHookTest extends TestCase {
 		return $this->parser->parse(
 			$text,
 			Title::newFromText( "Test" ),
-			ParserOptions::newFromUserAndLang( new User(), $GLOBALS['wgContLang'] ),
+			ParserOptions::newFromUserAndLang(
+				new User(),
+				MediaWikiServices::getInstance()->getContentLanguage()
+			),
 			false
-		)->getText();
+		)->getContentHolderText();
 	}
 
 	protected function registerParserHook() {
@@ -135,14 +127,12 @@ class TagHookTest extends TestCase {
 					return $params == $expectedParams;
 				} )
 			)
-			->will( $this->returnCallback( function( Parser $parser, ProcessingResult $result ) {
+			->willReturnCallback( function ( Parser $parser, ProcessingResult $result ) {
 				$params = $result->getParameters();
 				return '-' . $params['name']->getValue() . '-';
-			} ) );
+			} );
 
 		return $hookHandler;
 	}
-
-
 
 }

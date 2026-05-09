@@ -15,7 +15,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @group ParserHooks
  *
- * @licence GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class HookRunnerTest extends TestCase {
@@ -73,9 +73,9 @@ class HookRunnerTest extends TestCase {
 		];
 	}
 
-	const HOOK_HANDLER_RESULT = 'hook handler result';
-	const PARSE_RESULT = 'the parsed result';
-	const INPUT_TEXT = 'input text';
+	private const HOOK_HANDLER_RESULT = 'hook handler result';
+	private const PARSE_RESULT = 'the parsed result';
+	private const INPUT_TEXT = 'input text';
 
 	protected $options;
 
@@ -138,7 +138,7 @@ class HookRunnerTest extends TestCase {
 					$this->equalTo( self::HOOK_HANDLER_RESULT ),
 					$this->equalTo( $this->frame )
 				)
-				->will( $this->returnValue( self::PARSE_RESULT ) );
+				->willReturn( self::PARSE_RESULT );
 		}
 		else {
 			$parser->expects( $this->never() )
@@ -157,7 +157,7 @@ class HookRunnerTest extends TestCase {
 				$this->equalTo( $this->parser ),
 				$this->equalTo( $expectedProcessor )
 			)
-			->will( $this->returnValue( self::HOOK_HANDLER_RESULT ) );
+			->willReturn( self::HOOK_HANDLER_RESULT );
 
 		return $hookHandler;
 	}
@@ -171,7 +171,7 @@ class HookRunnerTest extends TestCase {
 
 		$paramProcessor->expects( $this->once() )
 			->method( 'processParameters' )
-			->will( $this->returnValue( $processedParams ) );
+			->willReturn( $processedParams );
 
 		return $paramProcessor;
 	}
