@@ -1,8 +1,0 @@
-{
-	"@metadata": {
-		"authors": [
-			"McDutchie"
-		]
-	},
-	"parserhooks-desc": "Interfacie OOP pro crear uncinos al analysator syntactic de MediaWiki de un maniera declarative"
-}

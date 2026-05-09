@@ -29,10 +29,6 @@ $wgShowDBErrorBacktrace = true;
 $wgDevelopmentWarnings = true;
 EOT
 
-cat <<EOT >> LocalSettings.php
-wfLoadExtension( "$EXTENSION_NAME" );
-EOT
-
 cat <<EOT >> composer.local.json
 {
 	"extra": {
