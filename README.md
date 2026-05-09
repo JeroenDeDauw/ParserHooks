@@ -29,8 +29,8 @@ minimum requirements are indicated in bold. For a detailed list of changes, see 
 	</tr>
 	<tr>
 		<th>1.6.x</th>
-		<td>7.2 - 8.0</td>
-		<td>1.31 - 1.36</td>
+		<td>7.2 - 8.3</td>
+		<td>1.31 - 1.43</td>
 		<td>Bugfixes only</td>
 	</tr>
 	<tr>
