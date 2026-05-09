@@ -22,10 +22,16 @@ minimum requirements are indicated in bold. For a detailed list of changes, see 
 		<th>Release status</th>
 	</tr>
 	<tr>
-		<th>2.0.x</th>
-		<td><strong>8.1</strong> - 8.4</td>
-		<td><strong>1.43</strong> - 1.45</td>
+		<th>3.0.x</th>
+		<td>8.1 - 8.5</td>
+		<td>1.43 - 1.45</td>
 		<td><strong>Stable release</strong></td>
+	</tr>
+	<tr>
+		<th>2.0.x</th>
+		<td>8.1 - 8.4</td>
+		<td>1.43 - 1.45</td>
+		<td>Superseded by 3.0</td>
 	</tr>
 	<tr>
 		<th>1.6.x</th>
@@ -49,34 +55,18 @@ minimum requirements are indicated in bold. For a detailed list of changes, see 
 
 ## Installation
 
-You can use [Composer](https://getcomposer.org/) to download and install
-this package as well as its dependencies. Alternatively you can simply clone
-the git repository and load the extension via `wfLoadExtension`.
-
-### Composer
-
-To add this package as a local, per-project dependency to your project, simply add a
-dependency on `mediawiki/parser-hooks` to your project's `composer.json` file.
-Here is a minimal example of a `composer.json` file that just defines a dependency on
-ParserHooks 2.0:
+ParserHooks is a PHP library distributed via [Composer](https://getcomposer.org/).
+Add a dependency on `mediawiki/parser-hooks` to your project's `composer.json`:
 
     {
         "require": {
-            "mediawiki/parser-hooks": "~2.0"
+            "mediawiki/parser-hooks": "~3.0"
         }
     }
 
-### Manual
-
-Get the ParserHooks code, either via git, or some other means. Place it in
-`extensions/ParserHooks/` of your MediaWiki installation. Then load it via
-your `LocalSettings.php`:
-
-```php
-wfLoadExtension( 'ParserHooks' );
-```
-
-You also need to ensure that the dependencies listed in `composer.json` are installed.
+No `LocalSettings.php` change is required. ParserHooks no longer ships
+`extension.json` and is not registered as a MediaWiki extension; the classes
+are autoloaded by Composer.
 
 ## Usage
 
@@ -173,6 +163,12 @@ as a hobby project to support the
 [SubPageList MediaWiki extension](https://github.com/JeroenDeDauw/SubPageList/blob/master/README.md).
 
 ## Release notes
+
+### 3.0.0 (TBD)
+
+* ParserHooks is once again a pure PHP library, distributed via Composer. The MediaWiki extension registration files (`extension.json` and `i18n/`) have been removed.
+* Remove `wfLoadExtension( 'ParserHooks' )` from `LocalSettings.php`. ParserHooks classes load automatically when the package is installed via Composer.
+* ParserHooks no longer appears on `Special:Version`.
 
 ### 2.0.0 (2026-05-10)
 

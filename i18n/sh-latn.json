@@ -1,9 +1,0 @@
-{
-	"@metadata": {
-		"authors": [
-			"Aca",
-			"Winston Sung"
-		]
-	},
-	"parserhooks-desc": "OOP interfejs za pravljenje parserskih prehvatnika za MediaWiki na iskazni način"
-}
