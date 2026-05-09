@@ -3,6 +3,8 @@
 namespace ParserHooks\Tests;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use ParamProcessor\ProcessedParam;
 use ParamProcessor\ProcessingResult;
 use Parser;
@@ -11,17 +13,15 @@ use ParserHooks\HookRegistrant;
 use ParserHooks\HookRunner;
 use ParserOptions;
 use PHPUnit\Framework\TestCase;
-use Title;
-use User;
 
 /**
  * @group ParserHooks
- * @licence GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class TagHookTest extends TestCase {
 
-	const HOOK_NAME = 'systemtest_tagextension';
+	private const HOOK_NAME = 'systemtest_tagextension';
 
 	/**
 	 * @var Parser
@@ -126,10 +126,10 @@ class TagHookTest extends TestCase {
 					return $params == $expectedParams;
 				} )
 			)
-			->will( $this->returnCallback( function( Parser $parser, ProcessingResult $result ) {
+			->willReturnCallback( function ( Parser $parser, ProcessingResult $result ) {
 				$params = $result->getParameters();
 				return '-' . $params['name']->getValue() . '-';
-			} ) );
+			} );
 
 		return $hookHandler;
 	}

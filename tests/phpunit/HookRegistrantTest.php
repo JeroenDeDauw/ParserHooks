@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @group ParserHooks
  *
- * @licence GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class HookRegistrantTest extends TestCase {
@@ -100,7 +100,7 @@ class HookRegistrantTest extends TestCase {
 
 		$runner->expects( $this->once() )
 			->method( 'getDefinition' )
-			->will( $this->returnValue( $definition ) );
+			->willReturn( $definition );
 
 		return $runner;
 	}

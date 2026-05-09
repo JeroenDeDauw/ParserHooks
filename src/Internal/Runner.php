@@ -9,7 +9,7 @@ use ParserHooks\HookHandler;
 
 /**
  * @since 1.1
- * @licence GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 abstract class Runner {
@@ -89,7 +89,7 @@ abstract class Runner {
 	 *
 	 * @return array
 	 */
-	protected abstract function getDefaultOptions();
+	abstract protected function getDefaultOptions();
 
 	/**
 	 * @since 1.1

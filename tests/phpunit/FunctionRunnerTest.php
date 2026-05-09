@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @group ParserHooks
  *
- * @licence GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class FunctionRunnerTest extends TestCase {
@@ -36,7 +36,7 @@ class FunctionRunnerTest extends TestCase {
 		];
 	}
 
-	const HOOK_HANDLER_RESULT = 'hook handler result';
+	private const HOOK_HANDLER_RESULT = 'hook handler result';
 
 	/**
 	 * @dataProvider optionsProvider
@@ -70,7 +70,7 @@ class FunctionRunnerTest extends TestCase {
 
 		$frame->expects( $this->exactly( count( $inputParams ) ) )
 			->method( 'expand' )
-			->will( $this->returnArgument( 0 ) );
+			->willReturnArgument( 0 );
 
 		$result = $runner->run(
 			$parser,
@@ -101,7 +101,7 @@ class FunctionRunnerTest extends TestCase {
 				$this->equalTo( $parser ),
 				$this->equalTo( $expectedParameters )
 			)
-			->will( $this->returnValue( self::HOOK_HANDLER_RESULT ) );
+			->willReturn( self::HOOK_HANDLER_RESULT );
 
 		return $hookHandler;
 	}
@@ -115,7 +115,7 @@ class FunctionRunnerTest extends TestCase {
 
 		$paramProcessor->expects( $this->once() )
 			->method( 'processParameters' )
-			->will( $this->returnValue( $processedParams ) );
+			->willReturn( $processedParams );
 
 		return $paramProcessor;
 	}

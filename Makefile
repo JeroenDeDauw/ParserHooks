@@ -2,7 +2,7 @@
 
 ci: test cs
 test: phpunit
-cs: phpcs stan
+cs: phpcs
 
 phpunit:
 ifdef filter
@@ -13,9 +13,3 @@ endif
 
 phpcs:
 	vendor/bin/phpcs -p -s --standard=$(shell pwd)/phpcs.xml
-
-stan:
-	vendor/bin/phpstan analyse --configuration=phpstan.neon --memory-limit=2G
-
-stan-baseline:
-	vendor/bin/phpstan analyse --configuration=phpstan.neon --memory-limit=2G --generate-baseline

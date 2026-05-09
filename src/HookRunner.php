@@ -14,12 +14,12 @@ use PPFrame;
  *
  * @since 1.1
  *
- * @licence GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class HookRunner extends Runner {
 
-	const OPT_DO_PARSE = 'parse'; // Boolean, since 1.1
+	public const OPT_DO_PARSE = 'parse'; // Boolean, since 1.1
 
 	/**
 	 * @var Parser
@@ -68,7 +68,7 @@ class HookRunner extends Runner {
 		$defaultParam = array_shift( $defaultParameters );
 
 		// If there is a first default parameter, set the tag contents as its value.
-		if ( !is_null( $defaultParam ) && !is_null( $text ) ) {
+		if ( $defaultParam !== null && $text !== null ) {
 			$arguments[$defaultParam] = $text;
 		}
 

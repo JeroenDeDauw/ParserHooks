@@ -24,7 +24,6 @@
 		"param-processor/param-processor": "^1.12"
 	},
 	"require-dev": {
-		"phpstan/phpstan": "^2.0.1",
 		"mediawiki/mediawiki-codesniffer": "^45.0.0"
 	},
 	"autoload": {

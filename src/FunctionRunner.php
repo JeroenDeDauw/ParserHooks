@@ -14,12 +14,12 @@ use PPFrame;
  *
  * @since 1.0
  *
- * @licence GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class FunctionRunner extends Runner {
 
-	const OPT_DO_PARSE = 'parse'; // Boolean, since 1.1
+	public const OPT_DO_PARSE = 'parse'; // Boolean, since 1.1
 
 	/**
 	 * @since 1.1
@@ -54,7 +54,7 @@ class FunctionRunner extends Runner {
 	protected function getExpandedParams( array $rawArguments, PPFrame $frame ) {
 		$rawArgList = [];
 
-		foreach( $rawArguments as $arg ) {
+		foreach ( $rawArguments as $arg ) {
 			$rawArgList[] = $frame->expand( $arg );
 		}
 
