@@ -1,7 +1,6 @@
 # ParserHooks
 
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/JeroenDeDauw/ParserHooks/ci.yml?branch=master)](https://github.com/JeroenDeDauw/ParserHooks/actions?query=workflow%3ACI)
-[![codecov](https://codecov.io/gh/JeroenDeDauw/ParserHooks/branch/master/graph/badge.svg)](https://codecov.io/gh/JeroenDeDauw/ParserHooks)
 [![Latest Stable Version](https://poser.pugx.org/mediawiki/parser-hooks/version.png)](https://packagist.org/packages/mediawiki/parser-hooks)
 [![Download count](https://poser.pugx.org/mediawiki/parser-hooks/d/total.png)](https://packagist.org/packages/mediawiki/parser-hooks)
 
@@ -175,7 +174,7 @@ as a hobby project to support the
 
 ## Release notes
 
-### 2.0 (TBD)
+### 2.0.0 (2026-05-09)
 
 * Increased PHP requirement to PHP 8.1
 * Increased MediaWiki requirement to MediaWiki 1.43

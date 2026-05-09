@@ -15,23 +15,18 @@ jobs:
           - mw: 'REL1_43'
             php: '8.1'
             experimental: false
-            coverage: false
           - mw: 'REL1_43'
             php: '8.2'
             experimental: false
-            coverage: true
           - mw: 'REL1_44'
             php: '8.3'
             experimental: false
-            coverage: false
           - mw: 'REL1_45'
             php: '8.4'
             experimental: false
-            coverage: false
           - mw: 'master'
             php: '8.5'
             experimental: true
-            coverage: false
 
     runs-on: ubuntu-latest
 
@@ -88,22 +83,6 @@ jobs:
           else
             composer phpunit -- extensions/ParserHooks/tests/
           fi
-        if: ${{ ! matrix.coverage }}
-
-      - name: Run PHPUnit with code coverage
-        run: |
-          if [ -f tests/phpunit/phpunit.php ]; then
-            php tests/phpunit/phpunit.php -c extensions/ParserHooks/ --coverage-clover coverage.xml
-          else
-            composer phpunit -- extensions/ParserHooks/tests/ --coverage-clover coverage.xml
-          fi
-        if: ${{ matrix.coverage }}
-
-      - name: Upload code coverage
-        uses: codecov/codecov-action@v5
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-        if: ${{ matrix.coverage }}
 
   phpcs:
     name: "Code style: MW ${{ matrix.mw }}, PHP ${{ matrix.php }}"
