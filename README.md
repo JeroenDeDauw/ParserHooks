@@ -166,7 +166,7 @@ as a hobby project to support the
 
 ### 3.0.0 (TBD)
 
-* ParserHooks is once again a pure PHP library, distributed via Composer. The MediaWiki extension registration files (`extension.json` and `i18n/`) have been removed.
+* ParserHooks is now a pure PHP library, distributed via Composer. The MediaWiki extension registration files (`extension.json` and `i18n/`) have been removed.
 * Remove `wfLoadExtension( 'ParserHooks' )` from `LocalSettings.php`. ParserHooks classes load automatically when the package is installed via Composer.
 * ParserHooks no longer appears on `Special:Version`.
 
