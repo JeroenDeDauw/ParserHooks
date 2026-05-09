@@ -174,7 +174,7 @@ as a hobby project to support the
 
 ## Release notes
 
-### 2.0.0 (2026-05-09)
+### 2.0.0 (2026-05-10)
 
 * Increased PHP requirement to PHP 8.1
 * Increased MediaWiki requirement to MediaWiki 1.43
