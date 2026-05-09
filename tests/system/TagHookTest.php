@@ -57,7 +57,7 @@ class TagHookTest extends TestCase {
 				MediaWikiServices::getInstance()->getContentLanguage()
 			),
 			false
-		)->getRawText();
+		)->getContentHolderText();
 	}
 
 	protected function registerParserHook() {
