@@ -81,14 +81,14 @@ class HookRegistrantTest extends TestCase {
 	protected function newMockParser( array $names, $expectedMethod ) {
 		$parser = $this->createMock( 'Parser' );
 
-		foreach ( $names as $index => $name ) {
-			$parser->expects( $this->at( $index ) )
-				->method( $expectedMethod )
-				->with(
-					$this->equalTo( $name ),
-					$this->isType( 'callable' )
-				);
-		}
+		$callIndex = 0;
+		$parser->expects( $this->exactly( count( $names ) ) )
+			->method( $expectedMethod )
+			->willReturnCallback( function ( $actualName, $actualCallable ) use ( &$callIndex, $names ) {
+				$this->assertSame( $names[$callIndex], $actualName );
+				$this->assertIsCallable( $actualCallable );
+				$callIndex++;
+			} );
 
 		return $parser;
 	}

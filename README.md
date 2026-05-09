@@ -1,10 +1,7 @@
 # ParserHooks
 
-[![Build Status](https://secure.travis-ci.org/JeroenDeDauw/ParserHooks.png?branch=master)](http://travis-ci.org/JeroenDeDauw/ParserHooks)
-[![Code Coverage](https://scrutinizer-ci.com/g/JeroenDeDauw/ParserHooks/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/JeroenDeDauw/ParserHooks/?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/JeroenDeDauw/ParserHooks/badges/quality-score.png?s=2faf8e83be1e5ecd58a8f9f65cb47a01e966302e)](https://scrutinizer-ci.com/g/JeroenDeDauw/ParserHooks/)
-
-On Packagist:
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/JeroenDeDauw/ParserHooks/ci.yml?branch=master)](https://github.com/JeroenDeDauw/ParserHooks/actions?query=workflow%3ACI)
+[![codecov](https://codecov.io/gh/JeroenDeDauw/ParserHooks/branch/master/graph/badge.svg)](https://codecov.io/gh/JeroenDeDauw/ParserHooks)
 [![Latest Stable Version](https://poser.pugx.org/mediawiki/parser-hooks/version.png)](https://packagist.org/packages/mediawiki/parser-hooks)
 [![Download count](https://poser.pugx.org/mediawiki/parser-hooks/d/total.png)](https://packagist.org/packages/mediawiki/parser-hooks)
 
@@ -26,16 +23,22 @@ minimum requirements are indicated in bold. For a detailed list of changes, see 
 		<th>Release status</th>
 	</tr>
 	<tr>
-		<th>1.6.x</th>
-		<td><strong>7.2</strong> - 8.0</td>
-		<td><strong>1.31</strong> - 1.36</td>
+		<th>2.0.x</th>
+		<td><strong>8.1</strong> - 8.4</td>
+		<td><strong>1.43</strong> - 1.45</td>
 		<td><strong>Stable release</strong></td>
+	</tr>
+	<tr>
+		<th>1.6.x</th>
+		<td>7.2 - 8.0</td>
+		<td>1.31 - 1.36</td>
+		<td>Bugfixes only</td>
 	</tr>
 	<tr>
 		<th>1.5.x</th>
 		<td>5.3 - 7.1</td>
 		<td>1.16 - 1.30</td>
-		<td>Bugfixes only</td>
+		<td>Obsolete release, no support</td>
 	</tr>
 	<tr>
 		<th>1.0.x - 1.4.x</th>
@@ -49,31 +52,36 @@ minimum requirements are indicated in bold. For a detailed list of changes, see 
 
 You can use [Composer](https://getcomposer.org/) to download and install
 this package as well as its dependencies. Alternatively you can simply clone
-the git repository and take care of loading yourself.
+the git repository and load the extension via `wfLoadExtension`.
 
 ### Composer
 
 To add this package as a local, per-project dependency to your project, simply add a
 dependency on `mediawiki/parser-hooks` to your project's `composer.json` file.
 Here is a minimal example of a `composer.json` file that just defines a dependency on
-ParserHooks 1.6:
+ParserHooks 2.0:
 
     {
         "require": {
-            "mediawiki/parser-hooks": "~1.6"
+            "mediawiki/parser-hooks": "~2.0"
         }
     }
 
 ### Manual
 
-Get the ParserHooks code, either via git, or some other means. Also get all dependencies.
-You can find a list of the dependencies in the "require" section of the composer.json file.
-Load all dependencies and the load the ParserHooks library by including its entry point:
-ParserHooks.php.
+Get the ParserHooks code, either via git, or some other means. Place it in
+`extensions/ParserHooks/` of your MediaWiki installation. Then load it via
+your `LocalSettings.php`:
+
+```php
+wfLoadExtension( 'ParserHooks' );
+```
+
+You also need to ensure that the dependencies listed in `composer.json` are installed.
 
 ## Usage
 
-All classes are located in the ParserHooks namespace, which is PSR-0 mapped onto the src/ directory.
+All classes are located in the `ParserHooks` namespace, which is PSR-4 mapped onto the `src/` directory.
 
 ### General concept
 
@@ -151,14 +159,13 @@ no extra work.
 
 ## Tests
 
-This library comes with a set up PHPUnit tests that cover all non-trivial code. You can run these
-tests using the PHPUnit configuration file found in the root directory. The tests can also be run
-via TravisCI, as a TravisCI configuration file is also provided in the root directory.
+This library comes with a set of PHPUnit tests that cover all non-trivial code. The tests
+are run on every push and pull request via [GitHub Actions](https://github.com/JeroenDeDauw/ParserHooks/actions).
 
-The tests can be run for the `tests/phpunit` directory of your MediaWiki installation
+The tests can be run from the `tests/phpunit` directory of your MediaWiki installation
 with this command:
 
-    php phpunit.php --wiki wikiName -c ../../extensions/ParserHooks/
+    php tests/phpunit/phpunit.php -c extensions/ParserHooks/
 
 ## Authors
 
@@ -168,72 +175,9 @@ as a hobby project to support the
 
 ## Release notes
 
-### 1.6.1 (2020-01-14)
-
-* Updated translations
-
-### 1.6 (2019-07-14)
-
-* Added support for PHP 7.2, 7.3 and 7.4
-* Added support for MediaWiki 1.31, 1.32 and 1.33
-* Dropped support for PHP 7.1 and older
-* Dropped support for MediaWiki 1.30 and older
-* Updated translations
-
-### 1.5 (2016-03-05)
-
-* Added license now shown on Special:Version
-* Updated translations
-* Made minor style improvements
-* Ensured the extension works with PHP 7 and MediaWiki up to at least 1.27
-
-### 1.4 (2014-07-05)
-
-* Changed the PHPUnit bootstrap so that the tests can be run via the MediaWiki test runner
-* Updated the CI configuration to test the code against multiple MediaWiki versions
-* Updated translations
-
-### 1.3 (2014-06-25)
-
-* Updated translations
-* Changed class loading to PSR-4
-* Updated the used Validator version to 2.x >= 2.0.4
-
-### 1.2.1 (2013-11-22)
-
-* Updated the used Validator version from 1.0 alpha to 1.0.0.1 stable, or later
-
-### 1.2 (2013-09-30)
-
-* Fixed parameter handling bug in FunctionRunner
-* Added system test for tag hook handling
-
-### 1.1 (2013-09-25)
-
-* Added HookRunner and HookRegistrant::registerHook
-* Added HookRegistrant::registerFunctionHandler and HookRegistrant::registerHookHandler
-* Fixed parameter handling bug in FunctionRunner
-* Improved HookRegistrantTest
-
-You can [read the release blog post](https://www.entropywins.wtf/blog/2013/09/25/parserhooks-1-1-released/)
-
-### 1.0.1 (2013-09-22)
-
-* Improved HookDefinition documentation
-* Added extra type checking in HookDefinition
-* Added extra tests for HookDefinition
-* Added coveralls.io support
-* Added PHPUnit file whitelisting (for more accurate and faster generated coverage reports)
-
-### 1.0 (2013-07-14)
-
-* Initial release ([blog post](https://www.entropywins.wtf/blog/2013/07/14/parserhooks-declarative-oop-api-for-mediawiki-released/))
+See [RELEASE-NOTES.md](RELEASE-NOTES.md).
 
 ## Links
 
 * [ParserHooks on Packagist](https://packagist.org/packages/mediawiki/parser-hooks)
-* [ParserHooks on Ohloh](https://www.ohloh.net/p/parserhooks)
 * [ParserHooks on MediaWiki.org](https://www.mediawiki.org/wiki/Extension:ParserHooks)
-* [ParserHooks on Scrutinizer CI](https://scrutinizer-ci.com/g/JeroenDeDauw/ParserHooks)
-* [ParserHooks on coveralls.io](https://coveralls.io/r/wikimedia/mediawiki-extensions-ParserHooks)
-* [TravisCI build status](https://travis-ci.org/JeroenDeDauw/ParserHooks)

@@ -2,10 +2,10 @@
 
 namespace ParserHooks\Tests;
 
+use MediaWiki\MediaWikiServices;
 use ParamProcessor\ProcessedParam;
 use ParamProcessor\ProcessingResult;
 use Parser;
-use ParserHooks\FunctionRunner;
 use ParserHooks\HookDefinition;
 use ParserHooks\HookRegistrant;
 use ParserHooks\HookRunner;
@@ -29,19 +29,7 @@ class TagHookTest extends TestCase {
 	protected $parser;
 
 	public function setUp(): void {
-		$this->parser = $this->getSomeParser();
-	}
-
-	protected function getSomeParser() {
-		if ( class_exists( \MediaWiki\MediaWikiServices::class ) ) {
-			$services = \MediaWiki\MediaWikiServices::getInstance();
-			if ( is_callable( $services, 'getParserFactory' ) ) {
-				return $services->getParserFactory()->create();
-			}
-		}
-		// Fallback for MW < 1.32
-		global $wgParserConf;
-		return new Parser( $wgParserConf );
+		$this->parser = MediaWikiServices::getInstance()->getParserFactory()->create();
 	}
 
 	public function testParserFunctionReceivesArguments() {
@@ -53,8 +41,8 @@ class TagHookTest extends TestCase {
 			"||<$name 1337=yes>Jeroen</$name>|||"
 		);
 
-		$this->assertInternalType( 'string', $result );
-		$this->assertContains(
+		$this->assertIsString( $result );
+		$this->assertStringContainsString(
 			"||-Jeroen-|||",
 			$result
 		);
@@ -64,7 +52,10 @@ class TagHookTest extends TestCase {
 		return $this->parser->parse(
 			$text,
 			Title::newFromText( "Test" ),
-			ParserOptions::newFromUserAndLang( new User(), $GLOBALS['wgContLang'] ),
+			ParserOptions::newFromUserAndLang(
+				new User(),
+				MediaWikiServices::getInstance()->getContentLanguage()
+			),
 			false
 		)->getText();
 	}
@@ -142,7 +133,5 @@ class TagHookTest extends TestCase {
 
 		return $hookHandler;
 	}
-
-
 
 }

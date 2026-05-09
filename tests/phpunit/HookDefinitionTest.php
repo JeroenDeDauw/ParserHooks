@@ -35,7 +35,7 @@ class HookDefinitionTest extends TestCase {
 		$definition = new HookDefinition( $names );
 		$obtainedNames = $definition->getNames();
 
-		$this->assertInternalType( 'array', $obtainedNames );
+		$this->assertIsArray( $obtainedNames );
 		$this->assertContainsOnly( 'string', $obtainedNames );
 		$this->assertEquals( (array)$names, $obtainedNames );
 	}
@@ -77,7 +77,7 @@ class HookDefinitionTest extends TestCase {
 		$definition = new HookDefinition( 'foo', [], $defaultParameters );
 		$obtainedDefaultParams = $definition->getDefaultParameters();
 
-		$this->assertInternalType( 'array', $obtainedDefaultParams );
+		$this->assertIsArray( $obtainedDefaultParams );
 		$this->assertContainsOnly( 'string', $obtainedDefaultParams );
 		$this->assertEquals( (array)$defaultParameters, $obtainedDefaultParams );
 	}
